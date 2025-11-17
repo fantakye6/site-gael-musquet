@@ -1,25 +1,105 @@
+/* Polices globales */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f9fafb;
-    color: #222;
+    font-family: 'Open Sans', sans-serif;
     margin: 0;
     padding: 0;
-  }
-  
-  header {
-    background-color: #0a2540;
+    background-color: #faf9f5;
+    color: #1f2937; /* Gris doux pour le texte */
+}
+
+/* Hero / bandeau */
+.hero {
+    background: url('assets/worldmap.jpg') center/cover no-repeat;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
     color: white;
-    padding: 1rem;
     text-align: center;
-  }
-  
-  nav a {
+}
+
+.hero-overlay {
+    background-color: rgba(14, 116, 144, 0.6); /* bleu océan semi-transparent */
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+.portrait {
+    width: 200px;
+    border-radius: 50%;
+    display: block;
+    margin: 1rem auto;
+    border: 3px solid #6ba37a; /* petit contour vert nature */
+}
+
+/* Titres */
+h1, h2 {
+    font-family: 'Lato', sans-serif;
+}
+
+h1 {
+    font-size: 2rem;
+    margin: 0;
+}
+
+h2 {
+    color: #0e7490; /* bleu océan */
+    margin-bottom: 1rem;
+}
+
+/* Intro / accroche */
+.intro {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    text-align: center;
+}
+
+/* Bouton */
+.btn-primary {
+    display: inline-block;
+    background-color: #6ba37a; /* vert nature */
     color: white;
-    margin: 0 10px;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
     text-decoration: none;
-  }
-  
-  nav a:hover {
-    text-decoration: underline;
-  }
-  
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #559064;
+}
+
+/* Galerie */
+.gallery {
+    max-width: 1000px;
+    margin: 3rem auto;
+    padding: 0 1rem;
+}
+
+.gallery .images {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.gallery img {
+    width: 300px;
+    border-radius: 8px;
+}
+
+/* Footer */
+footer {
+    background-color: #e2e8f0;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+}
+
+footer a {
+    color: #0e7490;
+    text-decoration: none;
+}
