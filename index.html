@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-    <!-- Navigation / onglets -->
+    <!-- Navigation / onglets encadrés -->
     <nav class="navbar">
         <ul>
             <li><a href="index.html"><i class="fas fa-home"></i> Accueil</a></li>
@@ -23,8 +23,9 @@
     <!-- Hero / Bandeau principal -->
     <header class="hero">
         <div class="hero-overlay">
-            <h1 id="hero-text">“Il n’y a pas de résilience sans partage de l’information.”</h1>
-            <p>— Gaël Musquet</p>
+            <div class="marquee">
+                <span id="hero-text">“Il n’y a pas de résilience sans partage de l’information.” — Gaël Musquet</span>
+            </div>
         </div>
     </header>
 
@@ -36,9 +37,44 @@
         <p>Son engagement illustre une conviction simple : la technologie n’a de sens que si elle renforce la solidarité et la résilience collective.</p>
     </section>
 
-    <!-- Bouton vers Engagements & Projets humanitaires -->
-    <section class="cta">
-        <a href="engagements.html" class="btn-primary">Découvrir ses projets humanitaires</a>
+    <!-- Section Découvrir ses projets humanitaires -->
+    <section class="projects">
+        <h2>Découvrir ses projets humanitaires</h2>
+        <div class="project-cards">
+            <div class="project-card">
+                <img src="assets/hand1.jpg" alt="HAND - Hackers Against Natural Disasters">
+                <h3>HAND</h3>
+                <p>Hackers Against Natural Disasters : outils libres pour anticiper ou répondre aux catastrophes.</p>
+            </div>
+            <div class="project-card">
+                <img src="assets/map1.jpg" alt="OpenStreetMap & Urgences">
+                <h3>OpenStreetMap</h3>
+                <p>Cartographie collaborative pour les secours lors de crises comme Haïti ou Philippines.</p>
+            </div>
+            <div class="project-card">
+                <img src="assets/sosmed.jpg" alt="SOS Méditerranée">
+                <h3>SOS Méditerranée</h3>
+                <p>Systèmes de géolocalisation et communication pour coordonner les secours en mer.</p>
+            </div>
+        </div>
     </section>
 
-    <!-- Galerie
+    <!-- Galerie / images représentatives -->
+    <section class="gallery">
+        <h2>Galerie & Témoignages</h2>
+        <div class="images">
+            <img src="assets/map1.jpg" alt="Carte OpenStreetMap" />
+            <img src="assets/hand1.jpg" alt="HAND - Hackers Against Natural Disasters" />
+            <img src="assets/sosmed.jpg" alt="SOS Méditerranée" />
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 – Site réalisé dans le cadre du projet BUT. Inspiration humanitaire et données ouvertes.</p>
+        <p><a href="contact.html">Contact & Sources</a></p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

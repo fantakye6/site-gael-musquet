@@ -1,10 +1,3 @@
-console.log("Bienvenue sur le site de Gaël Musquet !");
-// Animation du texte hero
-window.addEventListener('load', () => {
-    const heroText = document.getElementById('hero-text');
-    heroText.style.opacity = 1; // fade in automatiquement
-});
-
 // Animation des images de la galerie au scroll
 const galleryImages = document.querySelectorAll('.gallery img');
 
