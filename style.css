@@ -121,21 +121,25 @@ h2 {
     transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-.portrait:hover {
+.portrait-container:hover .portrait {
     transform: rotate(0deg) scale(1.05);
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 20px rgba(14, 116, 144, 0.6);
 }
 
-/* Punaise */
+/* Punaise attachée à la photo */
 .pin-image {
     position: absolute;
-    width: 50px;      /* ajuster selon taille voulue */
-    top: -10px;       /* légèrement au-dessus de la photo */
-    left: 50%;        /* centre horizontal */
-    transform: translateX(-50%); /* centre la punaise */
-    pointer-events: none; /* ne bloque pas le hover sur la photo */
+    width: 50px;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-2deg);
+    transition: transform 0.4s ease;
+    pointer-events: none;
 }
 
+.portrait-container:hover .pin-image {
+    transform: translateX(-50%) rotate(0deg) scale(1.05);
+}
 
 /* Section projets */
 .projects {
