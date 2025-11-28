@@ -21,16 +21,6 @@ body {
     align-items: center;
     padding: 0 1rem;
     border-bottom: 2px solid #0e7490;
-    padding-bottom: 0.5rem;
-}
-
-.nav-toggle {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 1.8rem;
-    cursor: pointer;
-    color: #0e7490;
 }
 
 #nav-menu {
@@ -49,7 +39,6 @@ body {
     padding: 0.5rem 1rem;
     border: 2px solid #0e7490;
     border-radius: 8px;
-    display: inline-block;
     transition: 0.3s;
 }
 
@@ -58,29 +47,35 @@ body {
     color: white;
 }
 
-/* Responsive menu */
+/* Responsive */
+.nav-toggle {
+    display: none;
+    font-size: 1.8rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #0e7490;
+}
+
 @media (max-width: 768px) {
+    .nav-toggle {
+        display: block;
+    }
     #nav-menu {
         display: none;
         flex-direction: column;
         width: 100%;
         background-color: #faf9f5;
         border-top: 2px solid #0e7490;
-        padding-top: 1rem;
     }
     #nav-menu.show {
         display: flex;
     }
     #nav-menu li {
-        border-bottom: 1px solid #0e7490;
-        padding: 0.5rem 0;
         text-align: center;
-    }
-    .nav-toggle {
-        display: block;
+        border-bottom: 1px solid #0e7490;
     }
 }
-
 /* =================== Hero =================== */
 .hero {
     background: url('assets/worldmap.jpg') center/cover no-repeat;
