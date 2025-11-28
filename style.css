@@ -89,27 +89,6 @@ body {
     align-items: center;
     justify-content: center;
 }
-
-.marquee {
-    width: 100%;
-    overflow: hidden;
-    white-space: nowrap;
-    box-sizing: border-box;
-}
-
-.marquee span {
-    display: inline-block;
-    white-space: nowrap;
-    animation: marquee 10s linear infinite;
-    font-size: 1.5rem;
-    color: white;
-}
-
-@keyframes marquee {
-    0% { transform: translateX(0%); }
-    100% { transform: translateX(-100%); }
-}
-
 /* =================== Intro / Portrait =================== */
 .intro {
     max-width: 800px;
