@@ -14,7 +14,7 @@ body {
     color: #1f2937;
 }
 
-/* =================== Navbar / Onglets =================== */
+/* =================== Navbar Desktop =================== */
 .navbar {
     background-color: #faf9f5;
     border-bottom: 2px solid #0e7490;
@@ -27,18 +27,9 @@ body {
     padding: 0 1rem;
 }
 
-.nav-toggle {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 1.8rem;
-    cursor: pointer;
-    color: #0e7490;
-}
-
-/* Menu normal desktop */
+/* Menu desktop */
 #nav-menu {
-    display: flex;
+    display: flex;      /* visible en desktop */
     gap: 1rem;
     list-style: none;
 }
@@ -56,14 +47,26 @@ body {
     color: white;
 }
 
+/* Hamburger toggle caché sur desktop */
+.nav-toggle {
+    display: none;
+}
+
 /* =================== Navbar Mobile =================== */
 @media (max-width: 768px) {
+
+    /* Hamburger visible uniquement sur mobile */
     .nav-toggle {
         display: block;
+        background: none;
+        border: none;
+        font-size: 1.8rem;
+        cursor: pointer;
+        color: #0e7490;
     }
 
     #nav-menu {
-        display: none;           /* masqué par défaut */
+        display: none;           /* masqué par défaut sur mobile */
         flex-direction: column;  
         width: 100%;
         margin: 0;
@@ -77,22 +80,22 @@ body {
     }
 
     #nav-menu li {
-        width: 100%;             /* chaque item prend toute la largeur */
+        width: 100%;             
         text-align: center;
         border-bottom: 1px solid #0e7490; /* seul trait de séparation */
-        padding: 0;              /* on ne veut pas d'espaces horizontaux */
+        padding: 0;              
     }
 
     #nav-menu li:last-child {
-        border-bottom: none;     /* pas de trait sur le dernier item */
+        border-bottom: none;
     }
 
     #nav-menu li a {
         display: block;
         width: 100%;
-        padding: 0.75rem 0;      /* padding vertical pour cliquer facilement */
-        border: none;            /* plus d'encadré */
-        text-align: center;      /* centré */
+        padding: 0.75rem 0;      
+        border: none;            
+        text-align: center;      
     }
 }
 /* =================== Hero =================== */
