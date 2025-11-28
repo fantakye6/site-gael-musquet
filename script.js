@@ -12,6 +12,12 @@ la technologie n’a de sens que si elle renforce
 la solidarité et la résilience collective.`;
 
 let i = 0;
+const toggle = document.getElementById("nav-toggle");
+const menu = document.getElementById("nav-menu");
+
+toggle.addEventListener("click", () => {
+    menu.classList.toggle("show");
+});
 const hackerElement = document.getElementById("hacker-text");
 function typeWritter() {
     if ( i < hackerText.length ) {
@@ -25,6 +31,7 @@ const navToggle = document.getElementById('nav-toggle');
     navToggle.addEventListener('click', () => {
         navMenu.classList.toggle('show');
     }); 
+    
 }
 typeWritter();
 
