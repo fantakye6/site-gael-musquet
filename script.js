@@ -14,13 +14,16 @@ la solidarité et la résilience collective.
 `;
 
 let index = 0;
+
 function typeEffect() {
     if (index < content.length) {
         hackerText.textContent += content.charAt(index);
         index++;
-        setTimeout(typeEffect, 75); // vitesse d’écriture
+        setTimeout(typeEffect, 35); // vitesse d’écriture
     }
 }
+
+typeEffect();
 
 /* ---------------------------------------
    2) Animation des images de la GALERIE
