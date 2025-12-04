@@ -20,7 +20,7 @@ html,body{overflow-x:hidden;margin:0;padding:0;font-family:'Open Sans',sans-seri
 }
 
 /* =================== Hero =================== */
-.hero{background:url('assets/worldmap.jpg') center/cover no-repeat;height:60vh;display:flex;align-items:center;justify-content:center}
+.hero{background:url('images/gael-musquet2.jpg') center/cover no-repeat;height:60vh;display:flex;align-items:center;justify-content:center}
 
 /* =================== Intro / Portrait =================== */
 .intro{max-width:800px;margin:2rem auto;padding:0 1rem;text-align:center}
