@@ -4,6 +4,15 @@ let lines = [];
 if (canvas) {
     ctx = canvas.getContext('2d');
 
+    // Debug helpers: log canvas presence and make it briefly visible with an outline
+    try {
+        console.log('[debug] world-lines canvas found:', canvas, 'size:', canvas.width, 'x', canvas.height);
+        // add a visible outline to help spotting the canvas in the page
+        canvas.style.outline = '3px solid rgba(255,0,0,0.6)';
+        // remove the outline after 2s so it doesn't remain
+        setTimeout(() => { canvas.style.outline = ''; }, 2000);
+    } catch (e) { console.log('[debug] canvas debug failed', e); }
+
     function resize() {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
