@@ -1,48 +1,49 @@
+const canvas = document.getElementById('world-lines');
+let ctx = null;
+let lines = [];
+if (canvas) {
+    ctx = canvas.getContext('2d');
 
+    function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
 
+    const NUM = 45;
+    for (let i = 0; i < NUM; i++) {
+        lines.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            x2: Math.random() * canvas.width,
+            y2: Math.random() * canvas.height,
+            speed: 0.3 + Math.random() * 0.4
+        });
+    }
 
-const canvas = document.getElementById('bg-lines');
-const ctx = canvas.getContext('2d');
+    function animate() {
+        if (!ctx) return;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.4)';
+        ctx.lineWidth = 1;
 
-function resize() {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+        lines.forEach(l => {
+            ctx.beginPath();
+            ctx.moveTo(l.x, l.y);
+            ctx.lineTo(l.x2, l.y2);
+            ctx.stroke();
+
+            l.x += (Math.random() - 0.5) * l.speed;
+            l.y += (Math.random() - 0.5) * l.speed;
+            l.x2 += (Math.random() - 0.5) * l.speed;
+            l.y2 += (Math.random() - 0.5) * l.speed;
+        });
+
+        requestAnimationFrame(animate);
+    }
+    animate();
 }
-resize();
-window.addEventListener('resize', resize);
-
-const lines = [];
-const NUM = 45;
-for (let i = 0; i < NUM; i++) {
-  lines.push({
-    x: Math.random() * canvas.width,
-    y: Math.random() * canvas.height,
-    x2: Math.random() * canvas.width,
-    y2: Math.random() * canvas.height,
-    speed: 0.3 + Math.random() * 0.4
-  });
-}
-
-function animate() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.strokeStyle = 'rgba(255, 255, 255, 0.4)';
-  ctx.lineWidth = 1;
-
-  lines.forEach(l => {
-    ctx.beginPath();
-    ctx.moveTo(l.x, l.y);
-    ctx.lineTo(l.x2, l.y2);
-    ctx.stroke();
-
-    l.x += (Math.random() - 0.5) * l.speed;
-    l.y += (Math.random() - 0.5) * l.speed;
-    l.x2 += (Math.random() - 0.5) * l.speed;
-    l.y2 += (Math.random() - 0.5) * l.speed;
-  });
-
-  requestAnimationFrame(animate);
-}
-animate();
 
 // Hamburger menu
 const toggle = document.getElementById("nav-toggle");
