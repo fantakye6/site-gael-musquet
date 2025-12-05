@@ -47,49 +47,43 @@ html,body{overflow-x:hidden;margin:0;padding:0;font-family:'Open Sans',sans-seri
 .project-card p{font-size:0.9rem;line-height:1.35;margin:0}
 
 /* =================== Galerie =================== */
-.gallery{margin:3rem auto;text-align:center}
-.gallery img{width:100%;max-width:300px;border-radius:8px;opacity:1;transform:none;transition:all 0.5s ease;flex:1 1 280px}
+.gallery{max-width:1100px;margin:2.5rem auto;padding:0 1rem}
+.gallery h2{font-family:'Lato',sans-serif;margin-bottom:1rem;color:#0b2a33}
+.carousel{position:relative;overflow:visible}
+.carousel-track{display:flex;transition:transform .6s ease;will-change:transform;gap:20px}
+.carousel-item{min-width:100%;box-sizing:border-box;display:flex;flex-direction:column;background:#ffffff;border-radius:12px;padding:14px;box-shadow:0 6px 20px rgba(15,23,42,0.06);border:1px solid rgba(15,23,42,0.04);transition:transform .3s ease,box-shadow .3s ease}
+.carousel-item:hover{transform:translateY(-6px);box-shadow:0 12px 30px rgba(15,23,42,0.08)}
+.carousel-item img{width:100%;height:220px;object-fit:cover;border-radius:10px;display:block}
 
-/* Carousel specific styles - Hacker / Dark Neon theme */
-.carousel{position:relative;max-width:1100px;margin:1.5rem auto;overflow:visible;padding:16px;border-radius:12px;background:linear-gradient(180deg,#071017 0%, #0c1418 100%);box-shadow:0 8px 20px rgba(2,6,23,0.45);border:1px solid rgba(0,200,120,0.04)}
-.carousel-track{display:flex;transition:transform 0.7s cubic-bezier(.22,.9,.3,1);will-change:transform;gap:14px}
-.carousel-item{min-width:100%;box-sizing:border-box;padding:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(180deg,rgba(2,6,11,0.6),rgba(2,6,11,0.45));border-radius:10px;border:1px solid rgba(0,200,120,0.04);transition:transform .3s ease,box-shadow .3s ease}
-.carousel-item:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(0,0,0,0.35)}
-.carousel-item img{max-width:100%;border-radius:6px;box-shadow:0 6px 18px rgba(0,0,0,0.45);display:block;height:auto;flex:0 0 auto;object-fit:cover;filter:contrast(1.02) saturate(1.02)}
-
-/* layout: image + caption side-by-side on larger screens */
+/* Layout for larger screens: image + caption side-by-side */
 .carousel-item{gap:16px}
-.carousel-item .caption{width:320px;height:320px;display:flex;align-items:center;justify-content:center;text-align:center;padding:18px;box-sizing:border-box;font-family:"Courier New", monospace;font-size:1rem;line-height:1.4;color:#bfffe8;background:rgba(3,10,12,0.48);border-radius:8px;border-left:4px solid rgba(0,200,120,0.12);overflow:hidden}
-.carousel-item .caption strong{color:#bfffe8}
-.carousel-item .caption::before{content:'';position:absolute;pointer-events:none;mix-blend-mode:screen}
+/* Square caption on desktop, responsive on mobile */
+.carousel-item .caption{box-sizing:border-box;font-family:"Courier New",monospace;font-size:1rem;line-height:1.4;color:#07313a;background:rgba(255,255,255,0.98);padding:18px;border-radius:10px;border-left:4px solid rgba(6,120,110,0.08);display:flex;align-items:center;justify-content:center;text-align:center;width:320px;height:320px}
+.carousel-item .caption p{margin:0}
 
-/* Neon buttons */
-.carousel-btn{position:absolute;top:50%;transform:translateY(-50%);background:transparent;color:#bfffe8;border:1px solid rgba(0,200,120,0.08);padding:.5rem .6rem;border-radius:50%;cursor:pointer;font-size:1.2rem;opacity:0.95;box-shadow:0 4px 12px rgba(0,0,0,0.35)}
-.carousel-btn:hover{transform:translateY(-50%) scale(1.03);box-shadow:0 8px 18px rgba(0,0,0,0.38)}
-.carousel-btn.prev{left:10px}
-.carousel-btn.next{right:10px}
-.carousel-btn:focus{outline:2px solid rgba(0,240,150,0.18);outline-offset:3px}
+/* Controls */
+.carousel-btn{position:absolute;top:50%;transform:translateY(-50%);background:#ffffff;color:#07313a;border:none;padding:.5rem .6rem;border-radius:50%;cursor:pointer;font-size:1.2rem;box-shadow:0 6px 18px rgba(15,23,42,0.08)}
+.carousel-btn.prev{left:8px}
+.carousel-btn.next{right:8px}
+.carousel-btn:focus{outline:2px solid rgba(6,120,110,0.1);outline-offset:3px}
 
-/* Indicators: thin neon bars */
-.carousel-indicators{display:flex;gap:.6rem;justify-content:center;margin-top:12px}
-.carousel-indicators button{width:26px;height:6px;border-radius:6px;border:none;background:rgba(255,255,255,0.03);cursor:pointer;transition:all .18s ease}
-.carousel-indicators button.active{background:linear-gradient(90deg,#a8ffea,#6fd9b0);box-shadow:0 6px 14px rgba(0,0,0,0.28)}
+.carousel-indicators{display:flex;gap:.5rem;justify-content:center;margin-top:12px}
+.carousel-indicators button{width:10px;height:10px;border-radius:50%;border:none;background:rgba(6,120,110,0.18);cursor:pointer;transition:transform .2s ease}
+.carousel-indicators button.active{background:rgba(6,120,110,0.9);transform:scale(1.1)}
 
-/* Pause on hover */
-.carousel:hover .carousel-btn{opacity:1}
-
+/* Responsive adjustments */
 @media (min-width:900px){
-  .carousel-item{min-height:360px;flex-direction:row;align-items:center}
-  .carousel-item img{width:60%;height:320px;border-radius:6px}
-  .carousel-item .caption{text-align:left}
+  .carousel-item{flex-direction:row;align-items:center;padding:18px}
+  .carousel-item img{width:60%;height:320px}
+  /* caption stays square on desktop */
+  .carousel-item .caption{width:320px;height:320px;text-align:left}
 }
 
 @media (max-width:900px){
-  .carousel{padding:12px}
   .carousel-track{gap:12px}
   .carousel-item{flex-direction:column;padding:12px}
-  .carousel-item img{width:100%;height:200px;border-radius:6px}
-  .carousel-item .caption{width:100%;height:auto;margin-top:12px;border-left:3px solid rgba(0,240,150,0.08)}
+  .carousel-item img{height:200px}
+  .carousel-item .caption{width:100%;margin-top:12px;border-left:3px solid rgba(6,120,110,0.06)}
   .carousel-btn.prev{left:6px}
   .carousel-btn.next{right:6px}
 }
