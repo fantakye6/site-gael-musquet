@@ -5,6 +5,54 @@ const menu = document.getElementById("nav-menu");
 toggle.addEventListener("click", () => {
     menu.classList.toggle("show");
 });
+const canvas = document.getElementById('world-bg');
+const ctx = canvas.getContext('2d');
+
+let width = canvas.width = window.innerWidth;
+let height = canvas.height = window.innerHeight;
+
+window.addEventListener('resize', () => {
+  width = canvas.width = window.innerWidth;
+  height = canvas.height = window.innerHeight;
+});
+
+const lines = [];
+const numLines = 50;
+
+// Créer les lignes avec positions aléatoires
+for (let i = 0; i < numLines; i++) {
+  lines.push({
+    x: Math.random() * width,
+    y: Math.random() * height,
+    x2: Math.random() * width,
+    y2: Math.random() * height,
+    speed: 0.2 + Math.random() * 0.5
+  });
+}
+
+function animate() {
+  ctx.clearRect(0, 0, width, height);
+  
+  ctx.strokeStyle = 'rgba(255, 255, 255, 0.6)';
+  ctx.lineWidth = 1;
+
+  lines.forEach(line => {
+    ctx.beginPath();
+    ctx.moveTo(line.x, line.y);
+    ctx.lineTo(line.x2, line.y2);
+    ctx.stroke();
+
+    // Déplacer légèrement les lignes pour l’animation
+    line.x += (Math.random() - 0.5) * line.speed;
+    line.y += (Math.random() - 0.5) * line.speed;
+    line.x2 += (Math.random() - 0.5) * line.speed;
+    line.y2 += (Math.random() - 0.5) * line.speed;
+  });
+
+  requestAnimationFrame(animate);
+}
+
+animate();
 
 // Hacker text animation
 const hackerText = `Météorologue de formation et hacker citoyen,
