@@ -6,22 +6,29 @@ toggle.addEventListener("click", () => {
     menu.classList.toggle("show");
 });
 const canvas = document.getElementById('world-bg');
-const ctx = canvas.getContext('2d');
+let ctx = null;
+let width = 0;
+let height = 0;
+let lines = [];
+let numLines = 0;
+if (canvas) {
+    ctx = canvas.getContext('2d');
 
-let width = canvas.width = window.innerWidth;
-let height = canvas.height = window.innerHeight;
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
 
-window.addEventListener('resize', () => {
-  width = canvas.width = window.innerWidth;
-  height = canvas.height = window.innerHeight;
-});
+    window.addEventListener('resize', () => {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+    });
 
-const lines = [];
-const numLines = 50;
+    lines = [];
+    numLines = 50;
 
-
-
-animate();
+    if (typeof animate === 'function') {
+        animate();
+    }
+}
 
 // Hacker text animation
 const hackerText = `Météorologue de formation et hacker citoyen,
