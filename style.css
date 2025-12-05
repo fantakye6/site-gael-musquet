@@ -104,3 +104,15 @@ html,body{overflow-x:hidden;margin:0;padding:0;font-family:'Open Sans',sans-seri
 
 /* =================== Footer =================== */
 footer{background-color:#e2e8f0;text-align:center;padding:1rem}
+
+/* Fallback safety: ensure page can scroll and hide any full-screen background canvas or overlays */
+html, body { overflow-y: auto !important; }
+
+/* If a canvas with id world-bg exists and covers the viewport, hide it to avoid blocking scroll/clicks */
+#world-bg { display:none !important; visibility:hidden !important; pointer-events:none !important; }
+
+/* Hide potential full-screen overlays (safety) */
+.fullscreen-overlay, .site-overlay { display:none !important; pointer-events:none !important; }
+
+/* Ensure major structural sections are not positioned fixed unintentionally */
+section, header, footer, .intro, .projects, .gallery { position: static !important; }
