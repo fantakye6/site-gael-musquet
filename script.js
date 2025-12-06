@@ -1,4 +1,3 @@
-// Pins removed: background is now decorative only.
 
 // Hamburger menu
 const toggle = document.getElementById("nav-toggle");

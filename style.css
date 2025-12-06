@@ -34,7 +34,7 @@ body{background:transparent}
 .portrait{width:100%;max-width:320px;border-radius:15px;margin:0;border:3px solid rgba(107,163,122,.7);box-shadow:0 10px 24px rgba(0,0,0,.22),0 0 10px rgba(14,116,144,.1);transform:rotate(-2deg);transition:.4s ease}
 .portrait-container:hover .portrait{transform:rotate(0deg) scale(1.03)}
 .pin-image{position:absolute;width:48px;top:-12px;left:45%;transform:translateX(-50%) rotate(-2deg);transition:.4s ease}
-.portrait-container:hover .pin-image{transform:translateX(-50%) rotate(0deg) scale(1.05)}
+.portrait-container:hover .loupe-image{transform:translateX(-50%) rotate(0deg) scale(1.05)}
 
 .hacker-text-container{flex:0 0 60%;display:flex;align-items:center;justify-content:flex-start}
 /* Make hacker-text wider so content doesn't overflow */
