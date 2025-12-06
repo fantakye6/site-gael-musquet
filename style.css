@@ -77,7 +77,7 @@ body{background:transparent}
 }
 
 /* Animation pulsation */
-.portrait-wrapper:hover .halo {
+.portrait-link:hover .halo {
   opacity: 1;
   animation: pulse 2.5s infinite ease-in-out;
 }
