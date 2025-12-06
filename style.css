@@ -35,12 +35,8 @@ body{background:transparent}
 @keyframes halo-pulse{0%{transform:translate(-50%,-50%) scale(0.95);opacity:.7}50%{transform:translate(-50%,-50%) scale(1.05);opacity:1}100%{transform:translate(-50%,-50%) scale(0.95);opacity:.7}}
 .hacker-text-container{flex:1 1 500px;display:flex;align-items:center;justify-content:center}
 #hacker-text{width:100%;min-height:360px;padding:1.5rem;font-family:"Courier New",monospace;font-size:1rem;color:#bfffe6;background:#021014;border-radius:12px;border-left:3px solid rgba(158,247,223,0.45);box-shadow:0 0 12px rgba(158,247,223,0.16);white-space:pre-line;animation:glow 3.2s infinite alternate}
-@media(max-width:1024px){.intro{flex-direction:column;align-items:center}.portrait-container{margin-bottom:1.5rem}#hacker-text{max-width:400px;width:90%}}
+@media(max-width:900px){.intro{flex-direction:column;align-items:center}.portrait-container{margin-bottom:1.5rem}#hacker-text{max-width:400px;width:90%}}
 @media(max-width:600px){.portrait{width:220px}#hacker-text{max-width:350px}}
-
-
-/* Make hacker-text wider so content doesn't overflow */
-#hacker-text{width:760px;min-height:440px;margin:0;padding:2rem;box-sizing:border-box}
 
 /* Enhance main title */
 .intro .section-title{font-family:'Lato',sans-serif;font-size:1.8rem;font-weight:800;color:#072f34;letter-spacing:0.4px;margin-bottom:1rem;text-shadow:0 6px 18px rgba(3,29,33,0.12)}
