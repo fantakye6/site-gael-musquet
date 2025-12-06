@@ -1,27 +1,23 @@
-// Replace canvas animation with pin overlay generator
+// Pin overlay: generate random animated pins
 const pinsContainer = document.getElementById('map-pins');
 if (pinsContainer) {
-    // Example pins (x%, y%) relative to the map container
-    const pins = [
-        { x: 22, y: 34, label: 'Paris' },
-        { x: 48, y: 28, label: 'Lyon' },
-        { x: 70, y: 50, label: 'Marseille' },
-        { x: 35, y: 68, label: 'Bordeaux' },
-        { x: 82, y: 20, label: 'Nice' }
-    ];
+    const N = 20; // number of random pins
+    function rand(min, max) { return min + Math.random() * (max - min); }
 
-    function createPin(p) {
+    for (let i = 0; i < N; i++) {
+        const x = Math.round(rand(5, 95));
+        const y = Math.round(rand(8, 88));
         const pin = document.createElement('div');
         pin.className = 'pin';
-        pin.style.left = p.x + '%';
-        pin.style.top = p.y + '%';
-        pin.innerHTML = `<img src="images/image-removebg-preview-2.png" alt="pin"><div class="pin-label">${p.label}</div>`;
+        pin.style.left = x + '%';
+        pin.style.top = y + '%';
+        pin.innerHTML = `<img src="images/image-removebg-preview-2.png" alt="pin"><div class="pin-label">Repère</div>`;
         pinsContainer.appendChild(pin);
-        // staggered reveal
-        setTimeout(() => pin.classList.add('show'), Math.random() * 1200 + 200);
+        // staggered reveal with slight vertical bounce
+        setTimeout(() => pin.classList.add('show'), i * 120 + Math.random() * 400);
     }
 
-    pins.forEach(createPin);
+    // pins are decorative; no interaction handlers needed
 }
 
 // Hamburger menu
