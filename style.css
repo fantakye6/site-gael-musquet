@@ -26,6 +26,10 @@ body{background:transparent}
 
 /* ===== Intro portrait + hacker côte à côte ===== */
 .intro{max-width:1100px;margin:3rem auto;padding:2rem 1rem}
+/* Keep intro visible while scrolling on larger screens */
+@media (min-width:900px){
+  .intro{position:sticky;top:18px;background:rgba(255,255,255,0.95);z-index:800;padding:1.2rem;border-radius:10px;box-shadow:0 8px 30px rgba(2,36,38,0.06)}
+}
 .intro .section-title{text-align:center;width:100%;display:block;margin-bottom:1.5rem}
 .intro-content{display:flex;gap:2rem;align-items:flex-start;justify-content:space-between;width:100%}
 .portrait-container{position:relative;max-width:320px;flex:0 0 34%;display:flex;justify-content:center;align-items:center}
