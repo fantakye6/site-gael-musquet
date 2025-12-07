@@ -131,7 +131,7 @@ section, header, footer, .intro, .projects, .gallery { position: static !importa
 .gallery .section-title {
   font-family:'Lato',sans-serif !important;
   font-size:1.8rem !important;
-  font-weight:400 !important; /* pas gras */
+  font-weight:55 !important; /* pas gras */
   color:#072f34 !important;
   letter-spacing:0.4px !important;
   margin-bottom:1rem !important;
