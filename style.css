@@ -126,15 +126,16 @@ html, body { overflow-y: auto !important; }
 /* Ensure major structural sections are not positioned fixed unintentionally */
 section, header, footer, .intro, .projects, .gallery { position: static !important; }
 
-/* Correction définitive titres Projets + Témoignages */
-.projects .section-title,
-.gallery .section-title {
-  font-family:'Lato',sans-serif !important;
-  font-size:1.8rem !important;
-  font-weight:55 !important; /* pas gras */
-  color:#072f34 !important;
-  letter-spacing:0.4px !important;
-  margin-bottom:1rem !important;
-  text-shadow:0 6px 18px rgba(3,29,33,0.12) !important;
-  text-align:center !important;
+.projects h2,
+.gallery h2 {
+  all: unset !important; /* on réinitialise tout = le h2 perd son gras */
+  display: block !important;
+  font-family: 'Lato', sans-serif !important;
+  font-size: 1.8rem !important;
+  font-weight: 400 !important;
+  color: #072f34 !important;
+  letter-spacing: 0.4px !important;
+  margin: 0 auto 1rem auto !important;
+  text-shadow: 0 6px 18px rgba(3,29,33,0.12) !important;
+  text-align: center !important;
 }
