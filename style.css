@@ -60,12 +60,12 @@ body{background:transparent}
 
 /* =================== Section Projets =================== */
 .projects{max-width:1000px;margin:4rem auto 3rem;text-align:center}
-.project-cards{display:flex;justify-content:center;flex-wrap:wrap;gap:1.5rem}
-.project-card{border:2px solid #0e7490;border-radius:10px;padding:1rem;width:280px;transition:.3s}
+.project-cards{display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:center}
+.project-card{display:block;text-decoration:none;border:2px solid #0e7490;border-radius:10px;padding:1rem;width:280px;transition:.3s;box-sizing:border-box}
 .project-card:hover{transform:translateY(-5px) scale(1.03);box-shadow:0 8px 20px rgba(0,0,0,.25)}
-.project-card img{width:100%;height:140px;object-fit:cover;border-radius:8px;margin-bottom:0.8rem;padding:0.3rem;background-color:#f9fcff;box-sizing: border-box;}
-.project-card h3{margin:0.4rem 0;font-size:1.1rem}
-.project-card p{font-size:0.9rem;line-height:1.35;margin:0}
+.project-card img{width:100%;height:140px;object-fit:cover;border-radius:8px;margin-bottom:.8rem;background-color:#f9fcff}
+.project-card h3{margin:.4rem 0;font-size:1.1rem;color:#072f34}
+.project-card p{font-size:.9rem;line-height:1.35;margin:0;color:#0b2a33}
 
 /* =================== Galerie =================== */
 .gallery{max-width:1100px;margin:2.5rem auto;padding:0 1rem}
