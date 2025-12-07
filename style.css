@@ -68,18 +68,6 @@ body{background:transparent}
 .project-card p{font-size:.9rem;line-height:1.35;margin:0;color:#0b2a33}
 
 
-/* Titres projets + témoignages (sans gras) */
-.projects h2,
-.gallery h2 {
-  font-family:'Lato',sans-serif;
-  font-size:1.8rem;
-  font-weight:400; /* plus de gras */
-  color:#072f34;
-  letter-spacing:0.4px;
-  margin-bottom:1rem;
-  text-shadow:0 6px 18px rgba(3,29,33,0.12);
-}
-
 /* =================== Galerie =================== */
 .gallery{max-width:1100px;margin:2.5rem auto;padding:0 1rem}
 .carousel{position:relative;overflow:visible}
@@ -137,3 +125,16 @@ html, body { overflow-y: auto !important; }
 
 /* Ensure major structural sections are not positioned fixed unintentionally */
 section, header, footer, .intro, .projects, .gallery { position: static !important; }
+
+/* Correction finale titres projets + témoignages */
+.projects h2,
+.gallery h2 {
+  font-family: 'Lato', sans-serif !important;
+  font-size: 1.8rem !important;
+  font-weight: 400 !important; /* plus de gras */
+  color: #072f34 !important;
+  letter-spacing: 0.4px !important;
+  margin-bottom: 1rem !important;
+  text-shadow: 0 6px 18px rgba(3,29,33,0.12) !important;
+  text-align: center !important; /* recentrage */
+}
