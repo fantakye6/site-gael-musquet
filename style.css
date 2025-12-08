@@ -140,7 +140,6 @@ section, header, footer, .intro, .projects, .gallery { position: static !importa
   text-align: center !important;
 }
 
-
 /* =================== PAGES INTERNES : Général =================== */
 .page-content{max-width:1000px;margin:3rem auto 5rem;padding:0 1rem}
 #nav-menu li a.active{background:#0e7490;color:#fff;box-shadow:0 4px 8px rgba(14,116,144,0.4)}
