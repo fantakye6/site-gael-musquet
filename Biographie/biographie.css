@@ -7,6 +7,10 @@ body {
   scroll-behavior: smooth;
 }
 
+.bio-main {
+  padding-bottom: 200px; /* Ajuste la valeur si nécessaire */
+}
+
 header {
   background: #2c3e50;
   color: white;

@@ -2,7 +2,8 @@
 function initBiographyAnimations() {
   const animatedElements = document.querySelectorAll('.animate');
   if (!animatedElements || animatedElements.length === 0) return;
-
+ 
+  animatedElements.forEach(el => el.classList.add('visible'));
   try {
     if ('IntersectionObserver' in window) {
       const observer = new IntersectionObserver(entries => {
