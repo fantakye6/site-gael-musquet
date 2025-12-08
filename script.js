@@ -7,19 +7,21 @@ toggle.addEventListener("click", () => {
     menu.classList.toggle("show");
 });
 
-// =================== Scroll Animations Intro ===================
+// =================== Scroll Animations Intro (si la page d'accueil est fusionnée) ===================
 const introSection = document.querySelector('.intro');
 const portraitCTA = document.querySelector('.portrait-cta');
 const halo = document.querySelector('.halo');
 
 function handleScroll() {
+    if (!introSection || !portraitCTA || !halo) return; // S'assurer que les éléments existent
+
     const rect = introSection.getBoundingClientRect();
     const windowHeight = window.innerHeight;
 
     if(rect.top < windowHeight * 0.8) { // section visible à 80%
         portraitCTA.style.opacity = '1';
         portraitCTA.style.transform = 'translateX(-50%) translateY(-6px)';
-        halo.style.transform = 'translate(-50%, -50%) scale(1.05)'; // halo légèrement plus grand
+        halo.style.transform = 'translate(-50%, -50%) scale(1.05)'; 
     } else {
         portraitCTA.style.opacity = '0';
         portraitCTA.style.transform = 'translateX(-50%) translateY(10px)';
@@ -46,15 +48,49 @@ let i = 0;
 const hackerElement = document.getElementById("hacker-text");
 
 function typeWritter() {
+    if (!hackerElement) return; // S'assurer que l'élément existe
+
     if (i < hackerText.length) {
         hackerElement.innerHTML += hackerText.charAt(i);
         i++;
         setTimeout(typeWritter, 35);
     }
 }
-typeWritter();
+// Assurez-vous d'appeler typeWritter() uniquement sur la page d'accueil si l'élément existe.
+if (hackerElement) {
+    typeWritter();
+}
 
-/* =================== Carousel functionality =================== */
+// =================== Intersection Observer pour les cartes biographiques ===================
+document.addEventListener('DOMContentLoaded', () => {
+    // Cibler les cartes
+    const cards = document.querySelectorAll('.bio-carte');
+    if (cards.length === 0) return; // Quitter si aucune carte trouvée
+
+    // Définition de l'observateur
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Si la carte est visible, on ajoute la classe d'animation
+                entry.target.classList.add('is-visible');
+                // On arrête d'observer cet élément une fois qu'il est apparu
+                observer.unobserve(entry.target); 
+            }
+        });
+    }, {
+        root: null, 
+        threshold: 0.1 // Déclenche quand 10% de l'élément est visible
+    });
+
+    cards.forEach((card, index) => {
+        // Optionnel : ajouter un léger délai pour un effet séquentiel
+        card.style.transitionDelay = `${index * 0.1}s`; 
+        observer.observe(card);
+    });
+});
+
+
+/* =================== Carousel functionality (Si vous avez une galerie) =================== */
 document.addEventListener('DOMContentLoaded', () => {
     const track = document.querySelector('.carousel-track');
     if (!track) return; // no carousel on this page
@@ -112,25 +148,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // pause on hover/focus
     const carouselEl = document.querySelector('.carousel');
-    carouselEl.addEventListener('mouseenter', stopAutoplay);
-    carouselEl.addEventListener('mouseleave', startAutoplay);
-    carouselEl.addEventListener('focusin', stopAutoplay);
-    carouselEl.addEventListener('focusout', startAutoplay);
+    if (carouselEl) {
+        carouselEl.addEventListener('mouseenter', stopAutoplay);
+        carouselEl.addEventListener('mouseleave', startAutoplay);
+        carouselEl.addEventListener('focusin', stopAutoplay);
+        carouselEl.addEventListener('focusout', startAutoplay);
 
-    // touch swipe support
-    let startX = 0;
-    let isDragging = false;
-    carouselEl.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; isDragging = true; stopAutoplay(); });
-    carouselEl.addEventListener('touchmove', (e) => { if (!isDragging) return; const dx = e.touches[0].clientX - startX; /* optionally implement drag preview */ });
-    carouselEl.addEventListener('touchend', (e) => { if (!isDragging) return; const endX = e.changedTouches[0].clientX; const dx = endX - startX; isDragging = false; if (Math.abs(dx) > 40) { if (dx < 0) goTo(currentIndex + 1); else goTo(currentIndex - 1); } startAutoplay(); });
+        // touch swipe support
+        let startX = 0;
+        let isDragging = false;
+        carouselEl.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; isDragging = true; stopAutoplay(); });
+        carouselEl.addEventListener('touchmove', (e) => { if (!isDragging) return; const dx = e.touches[0].clientX - startX; /* optionally implement drag preview */ });
+        carouselEl.addEventListener('touchend', (e) => { if (!isDragging) return; const endX = e.changedTouches[0].clientX; const dx = endX - startX; isDragging = false; if (Math.abs(dx) > 40) { if (dx < 0) goTo(currentIndex + 1); else goTo(currentIndex - 1); } startAutoplay(); });
 
-    // keyboard accessibility
-    carouselEl.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowLeft') { goTo(currentIndex - 1); restartAutoplay(); }
-        if (e.key === 'ArrowRight') { goTo(currentIndex + 1); restartAutoplay(); }
-    });
+        // keyboard accessibility
+        carouselEl.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') { goTo(currentIndex - 1); restartAutoplay(); }
+            if (e.key === 'ArrowRight') { goTo(currentIndex + 1); restartAutoplay(); }
+        });
 
-    // initial state
-    updateTrackPosition();
-    startAutoplay();
+        // initial state
+        updateTrackPosition();
+        startAutoplay();
+    }
 });
