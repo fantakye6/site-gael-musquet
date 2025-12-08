@@ -1,48 +1,42 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Biographie – Gaël Musquet</title>
-  <link rel="stylesheet" href="biographie.css">
-
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Biographie — Gaël Musquet</title>
+  <!-- Si tu as déjà mis <base href="/site-gael-musquet-1/"> dans index.html, laisse tel quel.
+       Sinon ajoute également cette ligne pour que les chemins relatifs fonctionnent depuis GitHub Pages -->
+  <base href="/site-gael-musquet-1/">
+  <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-
-<header>
-  <h1>Gaël Musquet</h1>
-  <p class="subtitle">Spécialiste de la résilience et technologies libres, engagé pour l’intérêt général</p>
-</header>
-
-<main class="bio-main">
-
-<noscript>
-  <style>
-    .animate { opacity: 1 !important; transform: none !important; }
-  </style>
-</noscript>
-
-  <!-- Cartes animées -->
-  <section class="cards">
-    <div class="card animate" data-delay="0">
-      <div class="icon">🌪️</div>
-      <h2>Origines</h2>
-     <img src="images/gael-musquet2.jpg" alt="Gaël enfant">
-      <p>Né en Guadeloupe, Gaël découvre très tôt la puissance des réseaux citoyens et l’importance de la météo, suite à l’ouragan de 1989 qui marque son enfance.</p>
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="../index.html" class="logo">Gaël Musquet</a>
+      <ul id="nav-menu">
+        <li><a href="../index.html">Accueil</a></li>
+        <li><a href="biographie.html" aria-current="page">Biographie</a></li>
+      </ul>
     </div>
+  </nav>
 
-    <div class="card animate" data-delay="200">
-      <div class="icon">📚</div>
+  <main class="card" style="max-width:900px;margin:36px auto;padding:20px;">
+    <h1>Biographie de Gaël Musquet</h1>
+    <p>Texte de biographie — remplace ce paragraphe par ton contenu réel.</p>
+
+    <section>
       <h2>Parcours</h2>
-  <img src="images/gael-musquet2.jpg" alt="Gaël études">
-      <p>Après des études en prépa en Guadeloupe, il s’installe en métropole pour se former en météorologie et ingénierie industrielle, tout en restant passionné par l’informatique libre.</p>
-    </div>
+      <p>Quelques lignes sur son parcours humanitaire et son travail avec les données.</p>
+    </section>
 
-    <div class="card animate" data-delay="400">
-      <div class="icon">🤝</div>
-      <h2>Engagement</h2>
-      <p>Il développe des solutions open-source et accompagne des communautés bénévoles pour améliorer la résilience face aux catastrophes naturelles.</p>
-    </div>
+    <a href="../index.html">← Retour à l'accueil</a>
+  </main>
+
+  <footer style="text-align:center;margin:40px 0;">
+    <p>&copy; 2025 — Gaël Musquet</p>
+  </footer>
+</body>
+</html>
 
     <div class="card animate" data-delay="600">
       <div class="icon">🌍</div>
