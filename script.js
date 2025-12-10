@@ -60,36 +60,6 @@ function typeWritter() {
 if (hackerElement) {
     typeWritter();
 }
-
-// =================== Intersection Observer pour les cartes biographiques ===================
-document.addEventListener('DOMContentLoaded', () => {
-    // Cibler les cartes
-    const cards = document.querySelectorAll('.bio-carte');
-    if (cards.length === 0) return; // Quitter si aucune carte trouvée
-
-    // Définition de l'observateur
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // Si la carte est visible, on ajoute la classe d'animation
-                entry.target.classList.add('is-visible');
-                // On arrête d'observer cet élément une fois qu'il est apparu
-                observer.unobserve(entry.target); 
-            }
-        });
-    }, {
-        root: null, 
-        threshold: 0.1 // Déclenche quand 10% de l'élément est visible
-    });
-
-    cards.forEach((card, index) => {
-        // Optionnel : ajouter un léger délai pour un effet séquentiel
-        card.style.transitionDelay = `${index * 0.1}s`; 
-        observer.observe(card);
-    });
-});
-
-
 /* =================== Carousel functionality (Si vous avez une galerie) =================== */
 document.addEventListener('DOMContentLoaded', () => {
     const track = document.querySelector('.carousel-track');
@@ -171,4 +141,34 @@ document.addEventListener('DOMContentLoaded', () => {
         updateTrackPosition();
         startAutoplay();
     }
+});document.addEventListener('DOMContentLoaded', () => {
+  const events = Array.from(document.querySelectorAll('.page-biographie .timeline-event'));
+  const yearDisplay = document.querySelector('.page-biographie .timeline-year-display');
+  const prevBtn = document.querySelector('.page-biographie .timeline-btn.prev');
+  const nextBtn = document.querySelector('.page-biographie .timeline-btn.next');
+
+  if (!events.length || !yearDisplay || !prevBtn || !nextBtn) return;
+
+  let currentIndex = 0;
+
+  function updateTimeline(index) {
+    events.forEach((evt, i) => {
+      evt.classList.toggle('active', i === index);
+    });
+    const year = events[index].getAttribute('data-annee');
+    yearDisplay.textContent = year;
+    events[index].scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  prevBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + events.length) % events.length;
+    updateTimeline(currentIndex);
+  });
+
+  nextBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % events.length;
+    updateTimeline(currentIndex);
+  });
+
+  updateTimeline(currentIndex);
 });
