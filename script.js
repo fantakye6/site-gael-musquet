@@ -183,3 +183,68 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+// =================== Timeline slider (Repères de vie) ===================
+document.addEventListener('DOMContentLoaded', () => {
+  const bioPage = document.querySelector('.page-biographie');
+  if (!bioPage) return;
+
+  const track = bioPage.querySelector('.timeline-track');
+  const cards = Array.from(bioPage.querySelectorAll('.timeline-card'));
+  const prevArrow = bioPage.querySelector('.timeline-arrow.left');
+  const nextArrow = bioPage.querySelector('.timeline-arrow.right');
+
+  if (!track || !cards.length || !prevArrow || !nextArrow) return;
+
+  let currentIndex = 0;
+
+  function setActiveCard(index) {
+    cards.forEach((card, i) => {
+      card.classList.toggle('active', i === index);
+    });
+
+    const targetCard = cards[index];
+    const cardRect = targetCard.getBoundingClientRect();
+    const trackRect = track.getBoundingClientRect();
+    const offset = cardRect.left - trackRect.left - (trackRect.width - cardRect.width) / 2;
+    track.scrollBy({ left: offset, behavior: 'smooth' });
+  }
+
+  prevArrow.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+    setActiveCard(currentIndex);
+  });
+
+  nextArrow.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % cards.length;
+    setActiveCard(currentIndex);
+  });
+
+  // swipe mobile
+  let startX = 0;
+  let isDragging = false;
+
+  track.addEventListener('touchstart', (e) => {
+    startX = e.touches[0].clientX;
+    isDragging = true;
+  });
+
+  track.addEventListener('touchend', (e) => {
+    if (!isDragging) return;
+    const endX = e.changedTouches[0].clientX;
+    const dx = endX - startX;
+    isDragging = false;
+
+    if (Math.abs(dx) > 40) {
+      if (dx < 0) {
+        currentIndex = (currentIndex + 1) % cards.length;
+      } else {
+        currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+      }
+      setActiveCard(currentIndex);
+    }
+  });
+
+  // initial
+  setActiveCard(currentIndex);
+});
