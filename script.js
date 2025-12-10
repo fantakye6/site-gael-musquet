@@ -160,67 +160,26 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-// =================== Timeline slider (page biographie) ===================
+// =================== BIO : focus sur une carte ===================
 document.addEventListener('DOMContentLoaded', () => {
-  const bioPage = document.querySelector('.page-biographie');
-  if (!bioPage) return;
+  const container = document.querySelector('.page-biographie .carte-personnalite');
+  if (!container) return;
 
-  const track = bioPage.querySelector('.timeline-track');
-  const cards = Array.from(bioPage.querySelectorAll('.timeline-card'));
-  const prevArrow = bioPage.querySelector('.timeline-arrow.left');
-  const nextArrow = bioPage.querySelector('.timeline-arrow.right');
+  const cards = Array.from(container.querySelectorAll('.bio-carte'));
+  if (!cards.length) return;
 
-  if (!track || !cards.length || !prevArrow || !nextArrow) return;
+  container.addEventListener('mouseenter', () => {
+    container.classList.add('is-focusing');
+  });
 
-  let currentIndex = 0;
+  container.addEventListener('mouseleave', () => {
+    container.classList.remove('is-focusing');
+  });
 
-  function setActiveCard(index) {
-    cards.forEach((card, i) => {
-      card.classList.toggle('active', i === index);
+  cards.forEach(card => {
+    card.addEventListener('click', () => {
+      cards.forEach(c => c.classList.remove('active'));
+      card.classList.add('active');
     });
-
-    const targetCard = cards[index];
-    const cardRect = targetCard.getBoundingClientRect();
-    const trackRect = track.getBoundingClientRect();
-    const offset = cardRect.left - trackRect.left - (trackRect.width - cardRect.width) / 2;
-    track.scrollBy({ left: offset, behavior: 'smooth' });
-  }
-
-  prevArrow.addEventListener('click', () => {
-    currentIndex = (currentIndex - 1 + cards.length) % cards.length;
-    setActiveCard(currentIndex);
   });
-
-  nextArrow.addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % cards.length;
-    setActiveCard(currentIndex);
-  });
-
-  // swipe mobile
-  let startX = 0;
-  let isDragging = false;
-
-  track.addEventListener('touchstart', (e) => {
-    startX = e.touches[0].clientX;
-    isDragging = true;
-  });
-
-  track.addEventListener('touchend', (e) => {
-    if (!isDragging) return;
-    const endX = e.changedTouches[0].clientX;
-    const dx = endX - startX;
-    isDragging = false;
-
-    if (Math.abs(dx) > 40) {
-      if (dx < 0) {
-        currentIndex = (currentIndex + 1) % cards.length;
-      } else {
-        currentIndex = (currentIndex - 1 + cards.length) % cards.length;
-      }
-      setActiveCard(currentIndex);
-    }
-  });
-
-  // initial
-  setActiveCard(currentIndex);
 });

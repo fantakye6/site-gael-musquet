@@ -162,7 +162,7 @@ body {
     }
 }
 
-/* =================== Accueil (rappel) =================== */
+/* =================== Accueil =================== */
 
 .intro {
     max-width: 1100px;
@@ -523,7 +523,8 @@ footer a {
     margin-bottom: 4rem;
 }
 
-/* Cartes bio façon maquette */
+/* ========= BIO : Cartes façon maquette avec focus ========= */
+
 .page-biographie .carte-personnalite {
     display: flex;
     flex-direction: column;
@@ -531,6 +532,24 @@ footer a {
     counter-reset: bioStep;
 }
 
+/* mode focus : on atténue toutes les cartes */
+.page-biographie .carte-personnalite.is-focusing .bio-carte {
+    filter: blur(2px);
+    opacity: 0.4;
+    transform: translateY(0) scale(0.97);
+}
+
+/* carte active (cliquée) ou survolée pendant le focus */
+.page-biographie .bio-carte.active,
+.page-biographie .carte-personnalite.is-focusing .bio-carte:hover {
+    filter: none;
+    opacity: 1;
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 22px 55px rgba(15, 23, 42, 0.35);
+    z-index: 2;
+}
+
+/* base des cartes */
 .page-biographie .bio-carte {
     position: relative;
     display: grid;
@@ -545,14 +564,12 @@ footer a {
     border: 1px solid rgba(148, 163, 184, 0.35);
     overflow: hidden;
 
-    transition: transform .25s ease, box-shadow .25s ease;
+    transition: transform .25s ease, box-shadow .25s ease,
+               opacity .25s ease, filter .25s ease;
     animation: fadeUp .6s ease-out both;
 }
 
-.page-biographie .bio-carte:nth-child(2) { animation-delay: .08s; }
-.page-biographie .bio-carte:nth-child(3) { animation-delay: .16s; }
-.page-biographie .bio-carte:nth-child(4) { animation-delay: .24s; }
-
+/* ligne de couleur en bas de chaque carte */
 .page-biographie .bio-carte::after {
     content: '';
     position: absolute;
@@ -565,15 +582,9 @@ footer a {
     opacity: 0.9;
 }
 
-.page-biographie .bio-carte:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 22px 55px rgba(15, 23, 42, 0.35);
-}
-
-/* bloc icône à gauche */
+/* bloc emoji à gauche */
 .page-biographie .carte-header {
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
 
@@ -584,12 +595,11 @@ footer a {
     border: 1px solid rgba(14, 116, 144, 0.3);
 }
 
-.page-biographie .carte-header i {
-    font-size: 1.6rem;
-    color: #0e7490;
+.page-biographie .carte-header .emoji {
+    font-size: 1.8rem;
 }
 
-/* contenu texte + badge numéro */
+/* titre + badge numéro */
 .page-biographie .carte-content h3 {
     margin: 0 0 .4rem;
     font-size: 1.06rem;
@@ -614,6 +624,7 @@ footer a {
     font-weight: 700;
 }
 
+/* texte */
 .page-biographie .carte-content p {
     margin: 0;
     font-size: .96rem;
@@ -627,90 +638,6 @@ footer a {
     to   { opacity: 1; transform: translateY(0); }
 }
 
-/* Timeline – slider */
-.page-biographie .timeline-slider {
-    display: flex;
-    align-items: stretch;
-    gap: 1rem;
-}
-
-.page-biographie .timeline-arrow {
-    border: none;
-    background: #0e7490;
-    color: #fff;
-    border-radius: 999px;
-    width: 38px;
-    height: 38px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(14, 116, 144, 0.35);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    flex-shrink: 0;
-}
-
-.page-biographie .timeline-arrow:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 6px 14px rgba(14, 116, 144, 0.45);
-}
-
-.page-biographie .timeline-track {
-    display: flex;
-    gap: 1rem;
-    overflow-x: hidden;
-    scroll-behavior: smooth;
-    flex: 1;
-}
-
-/* cartes de la frise façon gradient */
-.page-biographie .timeline-card {
-    min-width: 260px;
-    max-width: 320px;
-    background: linear-gradient(135deg, #0ea5e9, #6366f1);
-    color: #f8fafc;
-    border-radius: 20px;
-    padding: 18px 20px;
-    box-shadow: 0 16px 40px rgba(15, 23, 42, 0.45);
-    border: 1px solid rgba(148, 163, 184, 0.35);
-    flex-shrink: 0;
-    opacity: 0.5;
-    transform: translateY(4px) scale(0.97);
-    transition: opacity 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
-    animation: fadeUp .6s ease-out both;
-}
-
-.page-biographie .timeline-card.active {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-    box-shadow: 0 22px 55px rgba(15, 23, 42, 0.65);
-}
-
-.page-biographie .timeline-year {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 4px 10px;
-    border-radius: 999px;
-    background: rgba(15, 23, 42, 0.22);
-    color: #e0f2fe;
-    font-size: .8rem;
-    font-weight: 600;
-    margin-bottom: .5rem;
-}
-
-.page-biographie .timeline-card h3 {
-    margin: 0 0 .35rem;
-    font-size: 1.05rem;
-}
-
-.page-biographie .timeline-card p {
-    margin: 0;
-    font-size: .95rem;
-    line-height: 1.5;
-}
-
-/* Responsive biographie */
 @media (max-width: 700px) {
     .page-biographie .bio-carte {
         grid-template-columns: 1fr;
@@ -727,23 +654,128 @@ footer a {
         left: 14px;
         right: 14px;
     }
-
-    .page-biographie .timeline-slider {
-        gap: 0.5rem;
-    }
-
-    .page-biographie .timeline-card {
-        min-width: 85%;
-        max-width: 85%;
-    }
 }
 
+/* ========= Timeline verticale (Repères de vie) ========= */
+
+.page-biographie .timeline-immersive {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 18px;
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.16);
+    margin-bottom: 4rem;
+}
+
+.page-biographie .timeline-container {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+.page-biographie .timeline-container::after {
+    content: '';
+    position: absolute;
+    width: 3px;
+    background: linear-gradient(180deg, #0e9f92, #6366f1);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -1.5px;
+    opacity: 0.9;
+}
+
+.page-biographie .timeline-event {
+    padding: 10px 40px;
+    position: relative;
+    width: 50%;
+    box-sizing: border-box;
+    opacity: 0.55;
+    transform: translateY(10px) scale(0.97);
+    transition: opacity .25s ease, transform .25s ease, box-shadow .25s ease;
+}
+
+.page-biographie .timeline-event:nth-child(odd) {
+    left: 0;
+    text-align: right;
+}
+
+.page-biographie .timeline-event:nth-child(even) {
+    left: 50%;
+    text-align: left;
+}
+
+.page-biographie .timeline-event.active {
+    opacity: 1;
+    transform: translateY(0) scale(1.01);
+}
+
+.page-biographie .event-point {
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    right: -11px;
+    background-color: #fff;
+    border: 4px solid #0e7490;
+    top: 18px;
+    border-radius: 50%;
+    z-index: 1;
+    box-shadow: 0 0 0 4px rgba(14, 116, 144, 0.25);
+}
+
+.page-biographie .timeline-event:nth-child(even) .event-point {
+    left: -11px;
+    right: auto;
+}
+
+.page-biographie .event-content {
+    background: #0f172a;
+    color: #e5e7eb;
+    padding: 15px 18px;
+    border-radius: 14px;
+    box-shadow: 0 8px 22px rgba(15, 23, 42, 0.4);
+    border: 1px solid rgba(148, 163, 184, 0.25);
+}
+
+.page-biographie .event-content h3 {
+    margin: 0 0 6px;
+    font-size: 1.02rem;
+}
+
+.page-biographie .event-content p {
+    margin: 0;
+    font-size: .95rem;
+    line-height: 1.5;
+}
+
+/* année au-dessus du titre */
+.page-biographie .event-content h3::before {
+    content: attr(data-annee);
+    display: block;
+    font-size: .8rem;
+    font-weight: 700;
+    color: #38bdf8;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 2px;
+}
+
+/* Responsive timeline */
 @media (max-width: 600px) {
-    .page-biographie .bio-header {
-        margin-top: 2rem;
+    .page-biographie .timeline-container::after {
+        left: 20px;
     }
 
-    .page-biographie .bio-intro {
-        font-size: 0.95rem;
+    .page-biographie .timeline-event {
+        width: 100%;
+        padding-left: 48px;
+        padding-right: 10px;
+        left: 0 !important;
+        text-align: left;
+    }
+
+    .page-biographie .event-point {
+        left: 9px !important;
+        right: auto !important;
     }
 }

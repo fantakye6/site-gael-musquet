@@ -42,11 +42,11 @@
       </p>
     </header>
 
-    <!-- CARTES BIO ORIENTÉES RÉCIT (style maquette) -->
+    <!-- CARTES BIO ORIENTÉES RÉCIT (avec emojis) -->
     <section class="carte-personnalite">
-      <article class="bio-carte" data-categorie="origines">
+      <article class="bio-carte active" data-categorie="origines">
         <div class="carte-header">
-          <i class="fas fa-compass"></i>
+          <span class="emoji">🌀</span>
         </div>
         <div class="carte-content">
           <h3>Origines & déclic</h3>
@@ -59,7 +59,7 @@
 
       <article class="bio-carte" data-categorie="parcours">
         <div class="carte-header">
-          <i class="fas fa-wrench"></i>
+          <span class="emoji">🛠️</span>
         </div>
         <div class="carte-content">
           <h3>Se construire un métier utile</h3>
@@ -72,7 +72,7 @@
 
       <article class="bio-carte" data-categorie="communautes">
         <div class="carte-header">
-          <i class="fas fa-users"></i>
+          <span class="emoji">🌍</span>
         </div>
         <div class="carte-content">
           <h3>Découverte des communautés libres</h3>
@@ -85,7 +85,7 @@
 
       <article class="bio-carte" data-categorie="terrain">
         <div class="carte-header">
-          <i class="fas fa-flask"></i>
+          <span class="emoji">🧪</span>
         </div>
         <div class="carte-content">
           <h3>Du laboratoire au terrain</h3>
@@ -97,65 +97,65 @@
       </article>
     </section>
 
-    <!-- FRISE CHRONOLOGIQUE – CARROUSEL STYLE CARTE -->
+    <!-- FRISE CHRONOLOGIQUE – VERSION VERTICALE CENTRÉE -->
     <section class="timeline-immersive">
-      <h2 class="section-title">Frise chronologique</h2>
+      <h2 class="section-title">Repères de vie</h2>
 
-      <div class="timeline-slider">
-        <button class="timeline-arrow left" aria-label="Événement précédent">
-          <i class="fas fa-chevron-left"></i>
-        </button>
-
-        <div class="timeline-track">
-          <article class="timeline-card active" data-annee="1989">
-            <div class="timeline-year">1989</div>
+      <div class="timeline-container">
+        <article class="timeline-event active" data-annee="1989">
+          <div class="event-point"></div>
+          <div class="event-content">
             <h3>Hugo frappe la Guadeloupe</h3>
             <p>
-              Le cyclone dévaste l’île. Gaël découvre l’importance vitale de l’information en temps de crise
-              et la fragilité des territoires mal préparés.
+              À 9 ans, il vit l’un des ouragans les plus violents de l’histoire de son île.
+              Ce choc face au manque d’alertes fiables devient le point de départ de son engagement.
             </p>
-          </article>
+          </div>
+        </article>
 
-          <article class="timeline-card" data-annee="Années 2000">
-            <div class="timeline-year">Années 2000</div>
+        <article class="timeline-event" data-annee="Années 2000">
+          <div class="event-point"></div>
+          <div class="event-content">
             <h3>Études & premiers pas techniques</h3>
             <p>
-              Il se forme aux systèmes de mesure et à la météorologie, et travaille sur des capteurs
-              conçus pour mieux observer l’atmosphère et les phénomènes extrêmes.
+              Il se forme aux systèmes de mesure et à la météorologie,
+              et travaille sur des capteurs conçus pour mieux observer l’atmosphère.
             </p>
-          </article>
+          </div>
+        </article>
 
-          <article class="timeline-card" data-annee="Vers 2008">
-            <div class="timeline-year">Vers 2008</div>
+        <article class="timeline-event" data-annee="Vers 2008">
+          <div class="event-point"></div>
+          <div class="event-content">
             <h3>Rencontre avec les cartes libres</h3>
             <p>
-              Il rejoint des communautés de cartographie collaborative et comprend
-              que des citoyens peuvent produire eux-mêmes les cartes dont ils ont besoin.
+              Il rejoint des communautés de cartographie collaborative
+              et découvre que des citoyens peuvent produire eux‑mêmes les cartes dont ils ont besoin.
             </p>
-          </article>
+          </div>
+        </article>
 
-          <article class="timeline-card" data-annee="2010">
-            <div class="timeline-year">2010</div>
+        <article class="timeline-event" data-annee="2010">
+          <div class="event-point"></div>
+          <div class="event-content">
             <h3>Cartographie en temps de crise</h3>
             <p>
-              Il participe à des actions de cartographie lors de grandes catastrophes,
-              mesurant l’impact concret des données partagées sur la coordination des secours.
+              Il participe à des actions de cartographie lors de grandes catastrophes
+              et voit comment des données partagées aident les secours à s’organiser.
             </p>
-          </article>
+          </div>
+        </article>
 
-          <article class="timeline-card" data-annee="Aujourd’hui">
-            <div class="timeline-year">Aujourd’hui</div>
+        <article class="timeline-event" data-annee="Aujourd’hui">
+          <div class="event-point"></div>
+          <div class="event-content">
             <h3>Une vie au service de la résilience</h3>
             <p>
               Gaël accompagne désormais territoires, institutions et citoyens
               qui veulent anticiper les crises et renforcer leur capacité d’action.
             </p>
-          </article>
-        </div>
-
-        <button class="timeline-arrow right" aria-label="Événement suivant">
-          <i class="fas fa-chevron-right"></i>
-        </button>
+          </div>
+        </article>
       </div>
     </section>
 
