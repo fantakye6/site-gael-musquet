@@ -1,38 +1,39 @@
-
 // Hamburger menu
 const toggle = document.getElementById("nav-toggle");
 const menu = document.getElementById("nav-menu");
 
-toggle.addEventListener("click", () => {
+if (toggle && menu) {
+  toggle.addEventListener("click", () => {
     menu.classList.toggle("show");
-});
+  });
+}
 
-// =================== Scroll Animations Intro (si la page d'accueil est fusionnée) ===================
+// =================== Scroll Animations Intro (page d'accueil) ===================
 const introSection = document.querySelector('.intro');
 const portraitCTA = document.querySelector('.portrait-cta');
 const halo = document.querySelector('.halo');
 
 function handleScroll() {
-    if (!introSection || !portraitCTA || !halo) return; // S'assurer que les éléments existent
+  if (!introSection || !portraitCTA || !halo) return; // S'assurer que les éléments existent
 
-    const rect = introSection.getBoundingClientRect();
-    const windowHeight = window.innerHeight;
+  const rect = introSection.getBoundingClientRect();
+  const windowHeight = window.innerHeight;
 
-    if(rect.top < windowHeight * 0.8) { // section visible à 80%
-        portraitCTA.style.opacity = '1';
-        portraitCTA.style.transform = 'translateX(-50%) translateY(-6px)';
-        halo.style.transform = 'translate(-50%, -50%) scale(1.05)'; 
-    } else {
-        portraitCTA.style.opacity = '0';
-        portraitCTA.style.transform = 'translateX(-50%) translateY(10px)';
-        halo.style.transform = 'translate(-50%, -50%) scale(0.9)';
-    }
+  if (rect.top < windowHeight * 0.8) { // section visible à 80%
+    portraitCTA.style.opacity = '1';
+    portraitCTA.style.transform = 'translateX(-50%) translateY(-6px)';
+    halo.style.transform = 'translate(-50%, -50%) scale(1.05)';
+  } else {
+    portraitCTA.style.opacity = '0';
+    portraitCTA.style.transform = 'translateX(-50%) translateY(10px)';
+    halo.style.transform = 'translate(-50%, -50%) scale(0.9)';
+  }
 }
 
 window.addEventListener('scroll', handleScroll);
 window.addEventListener('load', handleScroll);
 
-// Hacker text animation
+// =================== Hacker text animation (page d'accueil) ===================
 const hackerText = `Météorologue de formation et hacker citoyen,
 Gaël Musquet place la technologie au service de l’humain.
 
@@ -48,127 +49,184 @@ let i = 0;
 const hackerElement = document.getElementById("hacker-text");
 
 function typeWritter() {
-    if (!hackerElement) return; // S'assurer que l'élément existe
+  if (!hackerElement) return; // S'assurer que l'élément existe
 
-    if (i < hackerText.length) {
-        hackerElement.innerHTML += hackerText.charAt(i);
-        i++;
-        setTimeout(typeWritter, 35);
-    }
+  if (i < hackerText.length) {
+    hackerElement.innerHTML += hackerText.charAt(i);
+    i++;
+    setTimeout(typeWritter, 35);
+  }
 }
-// Assurez-vous d'appeler typeWritter() uniquement sur la page d'accueil si l'élément existe.
+
+// Appeler uniquement si l'élément existe (page d'accueil)
 if (hackerElement) {
-    typeWritter();
+  typeWritter();
 }
-/* =================== Carousel functionality (Si vous avez une galerie) =================== */
+
+// =================== Carousel functionality (galerie) ===================
 document.addEventListener('DOMContentLoaded', () => {
-    const track = document.querySelector('.carousel-track');
-    if (!track) return; // no carousel on this page
+  const track = document.querySelector('.carousel-track');
+  if (!track) return; // pas de carousel sur cette page
 
-    const items = Array.from(track.children);
-    const prevBtn = document.querySelector('.carousel-btn.prev');
-    const nextBtn = document.querySelector('.carousel-btn.next');
-    const indicatorsContainer = document.createElement('div');
-    indicatorsContainer.className = 'carousel-indicators';
-    track.parentNode.appendChild(indicatorsContainer);
+  const items = Array.from(track.children);
+  const prevBtn = document.querySelector('.carousel-btn.prev');
+  const nextBtn = document.querySelector('.carousel-btn.next');
+  const indicatorsContainer = document.createElement('div');
+  indicatorsContainer.className = 'carousel-indicators';
+  track.parentNode.appendChild(indicatorsContainer);
 
-    let currentIndex = 0;
-    let autoplayInterval = null;
-    const AUTOPLAY_DELAY = 4000;
+  let currentIndex = 0;
+  let autoplayInterval = null;
+  const AUTOPLAY_DELAY = 4000;
 
-    // set widths (items are 100% each, flexbox handles it)
-    function updateTrackPosition() {
-        const offset = -currentIndex * 100;
-        track.style.transform = `translateX(${offset}%)`;
-        updateIndicators();
+  function updateTrackPosition() {
+    const offset = -currentIndex * 100;
+    track.style.transform = `translateX(${offset}%)`;
+    updateIndicators();
+  }
+
+  // Indicateurs
+  items.forEach((_, idx) => {
+    const btn = document.createElement('button');
+    btn.addEventListener('click', () => {
+      currentIndex = idx;
+      updateTrackPosition();
+      restartAutoplay();
+    });
+    indicatorsContainer.appendChild(btn);
+  });
+
+  function updateIndicators() {
+    const dots = Array.from(indicatorsContainer.children);
+    dots.forEach((d, i) => d.classList.toggle('active', i === currentIndex));
+  }
+
+  function goTo(index) {
+    currentIndex = (index + items.length) % items.length;
+    updateTrackPosition();
+  }
+
+  nextBtn && nextBtn.addEventListener('click', () => { goTo(currentIndex + 1); restartAutoplay(); });
+  prevBtn && prevBtn.addEventListener('click', () => { goTo(currentIndex - 1); restartAutoplay(); });
+
+  function startAutoplay() {
+    stopAutoplay();
+    autoplayInterval = setInterval(() => goTo(currentIndex + 1), AUTOPLAY_DELAY);
+  }
+
+  function stopAutoplay() {
+    if (autoplayInterval) {
+      clearInterval(autoplayInterval);
+      autoplayInterval = null;
     }
+  }
 
-    // indicators
-    items.forEach((_, idx) => {
-        const btn = document.createElement('button');
-        btn.addEventListener('click', () => {
-            currentIndex = idx;
-            updateTrackPosition();
-            restartAutoplay();
-        });
-        indicatorsContainer.appendChild(btn);
+  function restartAutoplay() {
+    stopAutoplay();
+    startAutoplay();
+  }
+
+  const carouselEl = document.querySelector('.carousel');
+  if (carouselEl) {
+    carouselEl.addEventListener('mouseenter', stopAutoplay);
+    carouselEl.addEventListener('mouseleave', startAutoplay);
+    carouselEl.addEventListener('focusin', stopAutoplay);
+    carouselEl.addEventListener('focusout', startAutoplay);
+
+    // touch swipe
+    let startX = 0;
+    let isDragging = false;
+    carouselEl.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+      isDragging = true;
+      stopAutoplay();
+    });
+    carouselEl.addEventListener('touchmove', (e) => {
+      if (!isDragging) return;
+    });
+    carouselEl.addEventListener('touchend', (e) => {
+      if (!isDragging) return;
+      const endX = e.changedTouches[0].clientX;
+      const dx = endX - startX;
+      isDragging = false;
+      if (Math.abs(dx) > 40) {
+        if (dx < 0) goTo(currentIndex + 1);
+        else goTo(currentIndex - 1);
+      }
+      startAutoplay();
     });
 
-    function updateIndicators() {
-        const dots = Array.from(indicatorsContainer.children);
-        dots.forEach((d, i) => d.classList.toggle('active', i === currentIndex));
-    }
+    carouselEl.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') { goTo(currentIndex - 1); restartAutoplay(); }
+      if (e.key === 'ArrowRight') { goTo(currentIndex + 1); restartAutoplay(); }
+    });
 
-    // next / prev
-    function goTo(index) {
-        currentIndex = (index + items.length) % items.length;
-        updateTrackPosition();
-    }
+    updateTrackPosition();
+    startAutoplay();
+  }
+});
 
-    nextBtn && nextBtn.addEventListener('click', () => { goTo(currentIndex + 1); restartAutoplay(); });
-    prevBtn && prevBtn.addEventListener('click', () => { goTo(currentIndex - 1); restartAutoplay(); });
+// =================== Timeline slider (page biographie) ===================
+document.addEventListener('DOMContentLoaded', () => {
+  const bioPage = document.querySelector('.page-biographie');
+  if (!bioPage) return;
 
-    // autoplay
-    function startAutoplay() {
-        stopAutoplay();
-        autoplayInterval = setInterval(() => goTo(currentIndex + 1), AUTOPLAY_DELAY);
-    }
-    function stopAutoplay() { if (autoplayInterval) { clearInterval(autoplayInterval); autoplayInterval = null; } }
-    function restartAutoplay() { stopAutoplay(); startAutoplay(); }
+  const track = bioPage.querySelector('.timeline-track');
+  const cards = Array.from(bioPage.querySelectorAll('.timeline-card'));
+  const prevArrow = bioPage.querySelector('.timeline-arrow.left');
+  const nextArrow = bioPage.querySelector('.timeline-arrow.right');
 
-    // pause on hover/focus
-    const carouselEl = document.querySelector('.carousel');
-    if (carouselEl) {
-        carouselEl.addEventListener('mouseenter', stopAutoplay);
-        carouselEl.addEventListener('mouseleave', startAutoplay);
-        carouselEl.addEventListener('focusin', stopAutoplay);
-        carouselEl.addEventListener('focusout', startAutoplay);
-
-        // touch swipe support
-        let startX = 0;
-        let isDragging = false;
-        carouselEl.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; isDragging = true; stopAutoplay(); });
-        carouselEl.addEventListener('touchmove', (e) => { if (!isDragging) return; const dx = e.touches[0].clientX - startX; /* optionally implement drag preview */ });
-        carouselEl.addEventListener('touchend', (e) => { if (!isDragging) return; const endX = e.changedTouches[0].clientX; const dx = endX - startX; isDragging = false; if (Math.abs(dx) > 40) { if (dx < 0) goTo(currentIndex + 1); else goTo(currentIndex - 1); } startAutoplay(); });
-
-        // keyboard accessibility
-        carouselEl.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowLeft') { goTo(currentIndex - 1); restartAutoplay(); }
-            if (e.key === 'ArrowRight') { goTo(currentIndex + 1); restartAutoplay(); }
-        });
-
-        // initial state
-        updateTrackPosition();
-        startAutoplay();
-    }
-});document.addEventListener('DOMContentLoaded', () => {
-  const events = Array.from(document.querySelectorAll('.page-biographie .timeline-event'));
-  const yearDisplay = document.querySelector('.page-biographie .timeline-year-display');
-  const prevBtn = document.querySelector('.page-biographie .timeline-btn.prev');
-  const nextBtn = document.querySelector('.page-biographie .timeline-btn.next');
-
-  if (!events.length || !yearDisplay || !prevBtn || !nextBtn) return;
+  if (!track || !cards.length || !prevArrow || !nextArrow) return;
 
   let currentIndex = 0;
 
-  function updateTimeline(index) {
-    events.forEach((evt, i) => {
-      evt.classList.toggle('active', i === index);
+  function setActiveCard(index) {
+    cards.forEach((card, i) => {
+      card.classList.toggle('active', i === index);
     });
-    const year = events[index].getAttribute('data-annee');
-    yearDisplay.textContent = year;
-    events[index].scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+    const targetCard = cards[index];
+    const cardRect = targetCard.getBoundingClientRect();
+    const trackRect = track.getBoundingClientRect();
+    const offset = cardRect.left - trackRect.left - (trackRect.width - cardRect.width) / 2;
+    track.scrollBy({ left: offset, behavior: 'smooth' });
   }
 
-  prevBtn.addEventListener('click', () => {
-    currentIndex = (currentIndex - 1 + events.length) % events.length;
-    updateTimeline(currentIndex);
+  prevArrow.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+    setActiveCard(currentIndex);
   });
 
-  nextBtn.addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % events.length;
-    updateTimeline(currentIndex);
+  nextArrow.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % cards.length;
+    setActiveCard(currentIndex);
   });
 
-  updateTimeline(currentIndex);
+  // swipe mobile sur la timeline
+  let startX = 0;
+  let isDragging = false;
+
+  track.addEventListener('touchstart', (e) => {
+    startX = e.touches[0].clientX;
+    isDragging = true;
+  });
+
+  track.addEventListener('touchend', (e) => {
+    if (!isDragging) return;
+    const endX = e.changedTouches[0].clientX;
+    const dx = endX - startX;
+    isDragging = false;
+
+    if (Math.abs(dx) > 40) {
+      if (dx < 0) {
+        currentIndex = (currentIndex + 1) % cards.length;
+      } else {
+        currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+      }
+      setActiveCard(currentIndex);
+    }
+  });
+
+  // initialisation
+  setActiveCard(currentIndex);
 });

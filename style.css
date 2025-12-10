@@ -1,6 +1,3 @@
-
-
-
 /* =================== Le Fond Fixe =================== */
 .map-bg {
     position: fixed;
@@ -546,7 +543,7 @@ footer a {
     margin-top: 0.8rem;
 }
 
-/* Styles des blocs flottants (Cartes et Timeline) */
+/* Blocs flottants (Cartes & Timeline) */
 .page-biographie .carte-personnalite,
 .page-biographie .timeline-immersive {
     background-color: rgba(255, 255, 255, 0.95);
@@ -573,15 +570,8 @@ footer a {
     transition: all .3s ease-in-out;
     cursor: pointer;
     border: 1px solid #e5e7eb;
-    opacity: 0;
-    transform: translateY(20px);
-}
-
-/* Animation d'apparition au scroll (géré par script.js) */
-.page-biographie .bio-carte.is-visible {
     opacity: 1;
     transform: translateY(0);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
 .page-biographie .bio-carte:hover {
@@ -612,155 +602,106 @@ footer a {
     opacity: 1;
 }
 
-/* Section Timeline */
-.page-biographie .timeline-container {
-    position: relative;
-    max-width: 800px;
-    margin: 0 auto;
-    padding-top: 20px;
-}
-
-.page-biographie .timeline-container::after {
-    content: '';
-    position: absolute;
-    width: 3px;
-    background-color: #0e7490;
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    margin-left: -1.5px;
-}
-
-.page-biographie .timeline-event {
-    padding: 10px 40px;
-    position: relative;
-    width: 50%;
-    box-sizing: border-box;
-}
-
-.page-biographie .timeline-event:nth-child(odd) {
-    left: 0;
-    text-align: right;
-}
-
-.page-biographie .timeline-event:nth-child(even) {
-    left: 50%;
-    text-align: left;
-}
-
-.page-biographie .event-point {
-    width: 20px;
-    height: 20px;
-    position: absolute;
-    right: -10px;
-    background-color: #fff;
-    border: 3px solid #0e7490;
-    top: 15px;
-    border-radius: 50%;
-    z-index: 1;
-}
-
-.page-biographie .timeline-event:nth-child(even) .event-point {
-    left: -10px;
-}
-
-.page-biographie .event-content {
-    background: #fafafa;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, .05);
-    border-left: 5px solid #0e7490;
-}
-
-.page-biographie .timeline-event:nth-child(odd) .event-content {
-    border-right: 5px solid #0e7490;
-    border-left: none;
-}
-
-.page-biographie .event-content h3::before {
-    content: attr(data-annee);
-    display: block;
-    font-size: .8rem;
-    font-weight: 700;
-    color: #0b6b6a;
-    margin-bottom: 5px;
-}
-
-/* TIMELINE – CONTROLES INTERACTIFS */
+/* ===== Timeline en slider ===== */
 .page-biographie .timeline-immersive {
-    position: relative;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    margin-bottom: 4rem;
 }
 
-.page-biographie .timeline-controls {
+.page-biographie .timeline-slider {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: stretch;
     gap: 1rem;
-    margin-bottom: 1.5rem;
 }
 
-.page-biographie .timeline-year-display {
-    font-family: 'Lato', sans-serif;
-    font-weight: 800;
-    font-size: 1.2rem;
-    color: #072f34;
-    padding: 0.4rem 0.9rem;
-    border-radius: 30px;
-    background: rgba(14, 148, 136, 0.08);
-}
-
-.page-biographie .timeline-btn {
+.page-biographie .timeline-arrow {
     border: none;
     background: #0e7490;
     color: #fff;
     border-radius: 999px;
-    padding: 0.35rem 0.7rem;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
-    font-size: 1rem;
     box-shadow: 0 4px 10px rgba(14, 116, 144, 0.35);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    flex-shrink: 0;
 }
 
-.page-biographie .timeline-btn:hover {
+.page-biographie .timeline-arrow:hover {
     transform: translateY(-1px);
     box-shadow: 0 6px 14px rgba(14, 116, 144, 0.45);
 }
 
-/* État actif / inactif des événements */
-.page-biographie .timeline-event {
-    opacity: 0.4;
-    transform: scale(0.98);
-    transition: opacity 0.3s ease, transform 0.3s ease;
+.page-biographie .timeline-track {
+    display: flex;
+    gap: 1rem;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    flex: 1;
 }
 
-.page-biographie .timeline-event.active {
+.page-biographie .timeline-card {
+    min-width: 260px;
+    max-width: 320px;
+    background: #fafafa;
+    border-radius: 10px;
+    padding: 16px 18px;
+    box-shadow: 0 4px 10px rgba(15, 23, 42, 0.06);
+    border: 1px solid rgba(15, 23, 42, 0.06);
+    flex-shrink: 0;
+    opacity: 0.5;
+    transform: scale(0.97);
+    transition: opacity 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.page-biographie .timeline-card.active {
     opacity: 1;
     transform: scale(1);
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.12);
+    border-color: #0e7490;
+}
+
+.page-biographie .timeline-year {
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #0b6b6a;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.page-biographie .timeline-card h3 {
+    margin: 0 0 6px;
+    font-size: 1.05rem;
+    color: #072f34;
+}
+
+.page-biographie .timeline-card p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.45;
 }
 
 /* Responsive (Biographie) */
+@media (max-width: 700px) {
+    .page-biographie .timeline-slider {
+        gap: 0.5rem;
+    }
+
+    .page-biographie .timeline-card {
+        min-width: 85%;
+        max-width: 85%;
+    }
+}
+
 @media (max-width: 600px) {
-    .page-biographie .timeline-container::after {
-        left: 20px;
-    }
-
-    .page-biographie .timeline-event {
-        width: 100%;
-        padding-left: 45px;
-        padding-right: 10px;
-        left: 0 !important;
-        text-align: left;
-    }
-
-    .page-biographie .event-point {
-        left: 10px !important;
-    }
-
-    .page-biographie .event-content {
-        border-left: 5px solid #0e7490 !important;
-        border-right: none !important;
-    }
-
     .page-biographie .bio-header {
         margin-top: 2rem;
     }
