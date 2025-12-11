@@ -164,3 +164,111 @@ document.addEventListener('DOMContentLoaded', () => {
   updateTrackPosition();
   startAutoplay();
 });
+/* =================== BIOGRAPHIE : cartes avec focus =================== */
+document.addEventListener('DOMContentLoaded', () => {
+  const bioSection = document.querySelector('.page-biographie .carte-personnalite');
+  if (!bioSection) return;
+
+  const cards = Array.from(bioSection.querySelectorAll('.bio-carte'));
+
+  function setActiveCard(card) {
+    cards.forEach(c => c.classList.remove('active'));
+    card.classList.add('active');
+  }
+
+  // Activer le flou général au premier survol
+  let hasFocused = false;
+
+  cards.forEach(card => {
+    card.addEventListener('mouseenter', () => {
+      if (!hasFocused) {
+        bioSection.classList.add('is-focusing');
+        hasFocused = true;
+      }
+      setActiveCard(card);
+    });
+
+    card.addEventListener('click', () => {
+      if (!hasFocused) {
+        bioSection.classList.add('is-focusing');
+        hasFocused = true;
+      }
+      setActiveCard(card);
+    });
+  });
+});
+
+/* =================== BIOGRAPHIE : frise chronologique =================== */
+document.addEventListener('DOMContentLoaded', () => {
+  const timeline = document.querySelector('.page-biographie .timeline-immersive');
+  if (!timeline) return;
+
+  const track = timeline.querySelector('.timeline-track');
+  const cards = Array.from(track.querySelectorAll('.timeline-card'));
+  const tabs = Array.from(timeline.querySelectorAll('.timeline-tab'));
+  const prevBtn = timeline.querySelector('.timeline-arrow.left');
+  const nextBtn = timeline.querySelector('.timeline-arrow.right');
+
+  let currentIndex = 0;
+
+  function updateTimeline(index) {
+    currentIndex = (index + cards.length) % cards.length;
+
+    // activer la bonne carte
+    cards.forEach((card, i) => {
+      card.classList.toggle('active', i === currentIndex);
+    });
+
+    // activer le bon onglet
+    tabs.forEach((tab, i) => {
+      tab.classList.toggle('active', i === currentIndex);
+    });
+
+    // déplacer la track (1 carte = 100%)
+    const offset = -currentIndex * 100;
+    track.style.transform = `translateX(${offset}%)`;
+  }
+
+  // clic sur les onglets (dates)
+  tabs.forEach((tab, index) => {
+    tab.addEventListener('click', () => {
+      updateTimeline(index);
+    });
+  });
+
+  // clic sur flèches
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      updateTimeline(currentIndex - 1);
+    });
+  }
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      updateTimeline(currentIndex + 1);
+    });
+  }
+
+  // swipe sur mobile
+  let startX = 0;
+  let isDragging = false;
+
+  track.addEventListener('touchstart', (e) => {
+    startX = e.touches[0].clientX;
+    isDragging = true;
+  });
+
+  track.addEventListener('touchend', (e) => {
+    if (!isDragging) return;
+    const endX = e.changedTouches[0].clientX;
+    const dx = endX - startX;
+    isDragging = false;
+
+    if (Math.abs(dx) > 40) {
+      if (dx < 0) updateTimeline(currentIndex + 1);
+      else updateTimeline(currentIndex - 1);
+    }
+  });
+
+  // état initial
+  updateTimeline(0);
+});
