@@ -569,7 +569,6 @@ footer a {
         right: 14px;
     }
 }
-
 /* ========= Timeline : tabs + slider ========= */
 
 /* empêche sélection de texte */
@@ -605,7 +604,7 @@ footer a {
     transform: translateY(-1px);
 }
 
-/* slider cartes */
+/* conteneur de la frise */
 .page-biographie .timeline-immersive {
     background-color: rgba(255, 255, 255, 0.95);
     padding: 30px;
@@ -614,6 +613,7 @@ footer a {
     margin-bottom: 4rem;
 }
 
+/* slider cartes */
 .page-biographie .timeline-slider {
     display: flex;
     align-items: center;
@@ -621,6 +621,7 @@ footer a {
     overflow: hidden; /* coupe ce qui dépasse */
 }
 
+/* flèches */
 .page-biographie .timeline-arrow {
     border: none;
     background: #0e7490;
@@ -641,16 +642,18 @@ footer a {
     box-shadow: 0 6px 14px rgba(14, 116, 144, 0.45);
 }
 
+/* piste horizontale */
 .page-biographie .timeline-track {
     display: flex;
     transition: transform .35s ease;
     will-change: transform;
-    overflow: hidden;
+    /* pas d’overflow ici, c’est .timeline-slider qui coupe */
 }
 
-/* cartes claires, contours uniquement */
+/* cartes */
 .page-biographie .timeline-card {
-    min-width: 80%;
+    min-width: 100%;
+    max-width: 100%;
     box-sizing: border-box;
     background: rgba(255, 255, 255, 0.9);
     color: #0f172a;
@@ -701,26 +704,11 @@ footer a {
         height: 34px;
     }
     .page-biographie .timeline-card {
-        min-width: 85%;
-        max-width: 85%;
+        min-width: 100%;
+        max-width: 100%;
     }
 }
 
-
-/* Responsive biographie */
-@media (max-width: 700px) {
-    .page-biographie .timeline-slider {
-        gap: 0.5rem;
-    }
-    .page-biographie .timeline-arrow {
-        width: 34px;
-        height: 34px;
-    }
-    .page-biographie .timeline-card {
-        min-width: 85%;
-        max-width: 85%;
-    }
-}
 @media (max-width: 600px) {
     .page-biographie .bio-header { margin-top: 2rem; }
     .page-biographie .bio-intro { font-size: 0.95rem; }
