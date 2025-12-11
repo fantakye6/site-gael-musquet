@@ -206,31 +206,40 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   tabs.forEach((tab) => {
-    tab.addEventListener('click', () => {
+    tab.addEventListener('click', (e) => {
+      e.preventDefault();
       const idx = parseInt(tab.dataset.index, 10);
       syncUI(idx);
     });
   });
 
-  prevArrow.addEventListener('click', () => {
+  prevArrow.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
     syncUI(currentIndex - 1);
   });
-  nextArrow.addEventListener('click', () => {
+
+  nextArrow.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
     syncUI(currentIndex + 1);
   });
 
   // swipe mobile
   let startX = 0;
   let isDragging = false;
+
   track.addEventListener('touchstart', (e) => {
     startX = e.touches[0].clientX;
     isDragging = true;
   });
+
   track.addEventListener('touchend', (e) => {
     if (!isDragging) return;
     const endX = e.changedTouches[0].clientX;
     const dx = endX - startX;
     isDragging = false;
+
     if (Math.abs(dx) > 40) {
       if (dx < 0) syncUI(currentIndex + 1);
       else syncUI(currentIndex - 1);
