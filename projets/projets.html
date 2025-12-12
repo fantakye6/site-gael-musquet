@@ -2,27 +2,96 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Ton nom - Projets</title>
-  <link rel="stylesheet" href="../style.css">
+  <title>Gaël Musquet – Projets, publications & interventions</title>
+  <link rel="stylesheet" href="../style.css"><!-- adapte le chemin si besoin -->
 </head>
 <body>
   <header>
-    <nav>
+    <nav class="main-nav">
       <a href="../index.html">Accueil</a>
-      <a href="projets.html">Projets</a>
+      <a href="projets.html#projets-principaux">Projets principaux</a>
+      <a href="projets.html#publications-interventions">Publications & interventions</a>
     </nav>
   </header>
 
   <main>
-    <h1>Mes projets</h1>
 
-    <section class="project-list">
-      <article class="project-card">
-        <h2>Nom du projet</h2>
-        <p>Petite description du projet.</p>
-        <a href="#">Voir le projet</a>
+    <!-- Sommaire interne -->
+    <nav class="project-nav">
+      <a href="#projets-principaux">Projets principaux</a>
+      <a href="#openstreetmap">OpenStreetMap France</a>
+      <a href="#hand">Collectif HAND</a>
+      <a href="#formateur-conferencier">Formateur & conférencier</a>
+      <a href="#experiments">Expérimentations technologiques</a>
+      <a href="#publications-interventions">Publications & interventions</a>
+    </nav>
+
+    <!-- A. Projets principaux -->
+    <section id="projets-principaux">
+      <h1>Projets principaux</h1>
+
+      <article id="openstreetmap" class="project-block">
+        <h2>Co‑fondateur de OpenStreetMap France</h2>
+        <p>Participation à la création et au développement d’OpenStreetMap France, afin de proposer une cartographie libre, collaborative et accessible à tous sur le territoire français.</p>
+        <p>Ce travail permet de produire et de maintenir des données géographiques ouvertes, réutilisables pour la prévention des risques, les services publics et les initiatives citoyennes.</p>
+        <ul class="project-links">
+          <li><a href="https://www.urbanisme.fr/invite/gael-musquet-la-donnee-produite-par-la-puissance-publique-devait-revenir-au-public/" target="_blank" rel="noopener">Entretien sur la donnée publique</a></li>
+          <li><a href="https://journals.openedition.org/factsreports/4844" target="_blank" rel="noopener">Article sur données & catastrophes</a></li>
+        </ul>
+      </article>
+
+      <article id="hand" class="project-block">
+        <h2>Créateur du collectif HAND</h2>
+        <p>Fondateur de Hackers Against Natural Disasters (HAND), collectif qui mobilise drones, réseaux mesh, capteurs et open data pour anticiper et gérer les catastrophes naturelles.</p>
+        <p>Les actions du collectif visent à préparer les populations, cartographier les zones à risque, déployer des réseaux de communication résilients et diffuser une culture du risque.</p>
+        <ul class="project-links">
+          <li><a href="https://www.tourmag.com/Projet-HAND-des-hackers-pour-avertir-les-touristes-des-risques-de-catastrophes-naturelles_a85938.html" target="_blank" rel="noopener">Article sur le projet HAND</a></li>
+          <li><a href="https://www.sogoodstories.com/magazine/gael-musquet-est-le-robin-des-bois-du-net/" target="_blank" rel="noopener">Portrait « Robin des Bois du net »</a></li>
+          <li><a href="https://www.geekmaispasque.com/2020/10/innovacteur-gael-musquet-hackers-against-natural-disasters-hacker-ethique/" target="_blank" rel="noopener">Portrait sur HAND & hacker éthique</a></li>
+        </ul>
+      </article>
+
+      <article id="formateur-conferencier" class="project-block">
+        <h2>Formateur & conférencier</h2>
+        <p>Interventions régulières auprès d’institutions, d’entreprises et de collectivités sur les risques naturels, les données ouvertes et la souveraineté numérique.</p>
+        <p>Ces formations et conférences visent à diffuser une culture de la prévention, à encourager l’usage des données libres et à renforcer la résilience des territoires.</p>
+      </article>
+
+      <article id="experiments" class="project-block">
+        <h2>Expérimentations technologiques</h2>
+        <p>Exploration de réseaux radio libres (LoRa, Sigfox), de capteurs météo DIY et de solutions énergétiques autonomes pour maintenir des infrastructures critiques en contexte de crise.</p>
+        <p>Ces expérimentations permettent de concevoir des dispositifs robustes et peu coûteux, adaptés aux situations d’urgence et aux territoires isolés.</p>
       </article>
     </section>
+
+    <!-- B. Publications & interventions -->
+    <section id="publications-interventions">
+      <h1>Publications & interventions</h1>
+
+      <article class="project-block">
+        <h2>Conférence « Cartographier l’urgence » (HAND)</h2>
+        <p>Présentation de l’usage de la cartographie libre, des capteurs et des réseaux citoyens pour anticiper et documenter les catastrophes naturelles.</p>
+      </article>
+
+      <article class="project-block">
+        <h2>Entretiens & portraits médiatiques</h2>
+        <p>Entretiens et portraits pour des médias comme Arte, France Culture, INRIA, ainsi que dans la presse écrite et en ligne, autour de l’open data, du risque et du rôle des citoyens.</p>
+        <ul class="project-links">
+          <li><a href="https://www.sogoodstories.com/magazine/gael-musquet-est-le-robin-des-bois-du-net/" target="_blank" rel="noopener">So good – Robin des Bois du net</a></li>
+          <li><a href="https://www.urbanisme.fr/invite/gael-musquet-la-donnee-produite-par-la-puissance-publique-devait-revenir-au-public/" target="_blank" rel="noopener">Revue Urbanisme – données publiques</a></li>
+          <li><a href="https://www.ouest-france.fr/normandie/eure-gael-musquet-est-un-corsaire-des-temps-modernes-4294362" target="_blank" rel="noopener">Ouest‑France – « corsaire des temps modernes »</a></li>
+        </ul>
+      </article>
+
+      <article class="project-block">
+        <h2>Open data & catastrophes</h2>
+        <p>Interventions et publications sur l’usage des données ouvertes et des contributions citoyennes pour documenter les catastrophes, évaluer les impacts et améliorer la réponse de crise.</p>
+        <ul class="project-links">
+          <li><a href="https://journals.openedition.org/factsreports/4844" target="_blank" rel="noopener">Article dans Facts Reports</a></li>
+        </ul>
+      </article>
+    </section>
+
   </main>
 </body>
 </html>
