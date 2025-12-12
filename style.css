@@ -579,6 +579,21 @@ body {
   z-index: 10;
   background-color: transparent;
 }
+.page-biographie .bio-header {
+  max-width: 900px;
+  margin: 0 auto 2.5rem;
+}
+
+.page-biographie .bio-intro {
+  background: rgba(255, 255, 255, 0.95);     /* fond blanc doux */      /* [web:359][web:366] */
+  padding: 16px 18px;
+  border-radius: 14px;
+  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.12);
+  border-left: 4px solid #0e9f92;
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: #0b2a33;
+}
 
 /* Cartes bio + focus */
 .page-biographie .carte-personnalite {
