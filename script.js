@@ -272,3 +272,29 @@ document.addEventListener('DOMContentLoaded', () => {
   // état initial
   updateTimeline(0);
 });
+/* =================== Animations de la page Projets (cards, publications, articles)  =================== */
+function initProjectAnimations() {
+  const elems = document.querySelectorAll('.animate, .publications-section, .articles-section');
+
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const target = entry.target;
+        const delay = parseInt(target.dataset.delay) || 0;
+
+        setTimeout(() => {
+          target.classList.add('visible');
+        }, delay);
+
+        obs.unobserve(target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  elems.forEach(el => obs.observe(el));
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  initProjectAnimations();
+  // appelle ici d'autres fonctions si tu en as (menu, etc.)
+});
