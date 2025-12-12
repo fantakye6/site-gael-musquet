@@ -4,122 +4,143 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Projets – Gaël Musquet</title>
-
-  <!-- CSS global (fichier à la racine) -->
   <link rel="stylesheet" href="../style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
+
 <body>
+  <!-- Fond carte identique à l’accueil -->
+  <div class="map-bg">
+    <img src="../images/image-de-fond.png" alt="Carte du monde">
+  </div>
 
-<header class="page-header">
-  <h1>Projets & travaux</h1>
-  <p class="subtitle">Actions, innovations et engagements citoyens</p>
-</header>
-
-<main class="projects-main">
-
-  <!-- A. Projets principaux -->
-  <section class="cards-section" id="projets-principaux">
-    <h2 class="section-title">Projets principaux</h2>
-
-    <!-- OpenStreetMap France -->
-    <article class="card animate" data-delay="0" id="openstreetmap">
-      <img src="../images/OSM.jpg" alt="OpenStreetMap France">
-      <h3>Co‑fondateur d’OpenStreetMap France</h3>
-      <p>Développement de la cartographie libre en France et mobilisation de communautés bénévoles pour l’intérêt général.</p>
-      <p>Production de données géographiques ouvertes réutilisées pour la prévention des risques, les services publics et les initiatives citoyennes.</p>
-    </article>
-
-    <!-- HAND -->
-    <article class="card animate" data-delay="150" id="hand">
-      <img src="../images/logo-hand.png" alt="Collectif HAND">
-      <h3>Collectif HAND</h3>
-      <p>Création de Hackers Against Natural Disasters (HAND) : mobilisation de drones, réseaux mesh, capteurs et open data pour anticiper et gérer les catastrophes naturelles.</p>
-      <p>Actions pour préparer les populations, cartographier les zones à risque et déployer des réseaux de communication résilients.</p>
-      <ul class="project-links">
-        <li><a target="_blank" rel="noopener"
-          href="https://www.tourmag.com/Projet-HAND-des-hackers-pour-avertir-les-touristes-des-risques-de-catastrophes-naturelles_a85938.html">
-          Article TourMag sur le projet HAND
-        </a></li>
+  <!-- Navigation identique (chemins adaptés) -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="../index.html" class="logo">Gaël Musquet</a>
+      <button class="nav-toggle" id="nav-toggle">☰</button>
+      <ul id="nav-menu">
+        <li><a href="../index.html"><i class="fas fa-home"></i> Accueil</a></li>
+        <li><a href="../biographie/biographie.html"><i class="fas fa-user"></i> Biographie</a></li>
+        <li><a href="projets.html" class="active"><i class="fas fa-hands-helping"></i> Projets</a></li>
+        <li><a href="../vision.html"><i class="fas fa-lightbulb"></i> Vision & Engagement</a></li>
+        <li><a href="../galerie.html"><i class="fas fa-images"></i> Galerie</a></li>
+        <li><a href="../apropos.html"><i class="fas fa-info-circle"></i> À propos</a></li>
+        <li><a href="../contact.html"><i class="fas fa-envelope"></i> Contact & Sources</a></li>
       </ul>
-    </article>
-
-    <!-- SOS Méditerranée -->
-    <article class="card animate" data-delay="300" id="sos-mediteranee">
-      <img src="../images/sos.jpg" alt="SOS Méditerranée">
-      <h3>SOS Méditerranée</h3>
-      <p>Contributions à des systèmes de géolocalisation et de communication pour coordonner les secours en mer.</p>
-      <p>Usage des données ouvertes et de la cartographie pour documenter les opérations de sauvetage et renforcer la vigilance citoyenne.</p>
-    </article>
-
-    <!-- Formateur & conférencier -->
-    <article class="card animate" data-delay="450" id="formateur-conferencier">
-      <img src="../images/formation.jpg" alt="Formations et conférences">
-      <h3>Formateur & conférencier</h3>
-      <p>Interventions sur les risques, la résilience, la souveraineté numérique et l’usage des logiciels libres pour les collectivités, associations et institutions.</p>
-      <p>Transmission d’une culture de la prévention et de la donnée ouverte auprès de publics variés.</p>
-    </article>
-
-    <!-- Expérimentations technologiques -->
-    <article class="card animate" data-delay="600" id="experiments">
-      <img src="../images/techno.jpg" alt="Expérimentations technologiques">
-      <h3>Expérimentations technologiques</h3>
-      <p>Explorations de réseaux radios libres (LoRa, Sigfox), de capteurs météo DIY et de solutions énergétiques autonomes.</p>
-      <p>Conception de dispositifs robustes et peu coûteux adaptés aux contextes de crise et aux territoires isolés.</p>
-    </article>
-  </section>
-
-  <!-- B. Publications & interventions -->
-  <section class="publications-section animate" data-delay="750" id="publications-interventions">
-    <h2 class="section-title">Publications & interventions</h2>
-
-    <ul class="publications-list">
-      <li>Conférence « Cartographier l’urgence » – Collectif HAND.</li>
-      <li>Entretiens pour Arte, France Culture, INRIA et plusieurs médias nationaux.</li>
-      <li>Interventions sur l’open data pour les catastrophes et la gestion de crise.</li>
-    </ul>
-
-    <a class="button-link" href="https://journals.openedition.org/factsreports/4844"
-       target="_blank" rel="noopener">
-      📘 Lire l’article scientifique (Facts Reports)
-    </a>
-  </section>
-
-  <!-- Articles & ressources externes -->
-  <section class="articles-section animate" data-delay="900">
-    <h2 class="section-title">Articles & ressources</h2>
-
-    <div class="articles-grid">
-
-      <a class="article-card" target="_blank" rel="noopener"
-        href="https://www.sogoodstories.com/magazine/gael-musquet-est-le-robin-des-bois-du-net/">
-        <h3>So good – « Robin des Bois du net »</h3>
-        <p>Portrait de Gaël Musquet et de ses engagements numériques et citoyens.</p>
-      </a>
-
-      <a class="article-card" target="_blank" rel="noopener"
-        href="https://www.geekmaispasque.com/2020/10/innovacteur-gael-musquet-hackers-against-natural-disasters-hacker-ethique/">
-        <h3>Geek Mais Pas Que</h3>
-        <p>Portrait d’un hacker éthique et acteur majeur de la résilience face aux risques.</p>
-      </a>
-
-      <a class="article-card" target="_blank" rel="noopener"
-        href="https://www.urbanisme.fr/invite/gael-musquet-la-donnee-produite-par-la-puissance-publique-devait-revenir-au-public/">
-        <h3>Revue Urbanisme</h3>
-        <p>Réflexion sur le rôle des données publiques et leur retour aux citoyens.</p>
-      </a>
-
-      <a class="article-card" target="_blank" rel="noopener"
-        href="https://www.ouest-france.fr/normandie/eure-gael-musquet-est-un-corsaire-des-temps-modernes-4294362">
-        <h3>Ouest‑France</h3>
-        <p>Portrait de Gaël Musquet comme « corsaire des temps modernes ».</p>
-      </a>
-
     </div>
-  </section>
+  </nav>
 
-</main>
+  <main class="projects-main">
 
-<!-- JS global (fichier à la racine) -->
-<script src="../script.js"></script>
+    <header class="page-header">
+      <h1>Projets & travaux</h1>
+      <p class="subtitle">Actions, innovations et engagements citoyens</p>
+    </header>
+
+    <!-- A. Projets principaux -->
+    <section class="cards-section" id="projets-principaux">
+      <h2 class="section-title">Projets principaux</h2>
+
+      <!-- OpenStreetMap France -->
+      <article class="card animate" data-delay="0" id="openstreetmap">
+        <img src="../images/OSM.jpg" alt="OpenStreetMap France">
+        <h3>Co‑fondateur d’OpenStreetMap France</h3>
+        <p>Développement de la cartographie libre en France et mobilisation de communautés bénévoles pour l’intérêt général.</p>
+        <p>Production de données géographiques ouvertes réutilisées pour la prévention des risques, les services publics et les initiatives citoyennes.</p>
+      </article>
+
+      <!-- HAND -->
+      <article class="card animate" data-delay="150" id="hand">
+        <img src="../images/logo-hand.png" alt="Collectif HAND">
+        <h3>Collectif HAND</h3>
+        <p>Hackers Against Natural Disasters : utilisation de drones, réseaux mesh, capteurs et open data pour anticiper et gérer les catastrophes naturelles.</p>
+        <p>Actions pour préparer les populations, cartographier les zones à risque et déployer des réseaux de communication résilients.</p>
+      </article>
+
+      <!-- SOS Méditerranée -->
+      <article class="card animate" data-delay="300" id="sosmediterranée">
+        <img src="../images/sos.jpg" alt="SOS Méditerranée">
+        <h3>SOS Méditerranée</h3>
+        <p>Contributions à des systèmes de géolocalisation et de communication pour coordonner les secours en mer.</p>
+        <p>Usage des données ouvertes et de la cartographie pour documenter les opérations de sauvetage et renforcer la vigilance citoyenne.</p>
+      </article>
+
+      <!-- Formateur & conférencier -->
+      <article class="card animate" data-delay="450" id="formateur-conferencier">
+        <img src="../images/formation.jpg" alt="Formations et conférences">
+        <h3>Formateur & conférencier</h3>
+        <p>Interventions sur les risques, la résilience, la souveraineté numérique et l’usage des logiciels libres pour les collectivités, associations et institutions.</p>
+        <p>Transmission d’une culture de la prévention et de la donnée ouverte auprès de publics variés.</p>
+      </article>
+
+      <!-- Expérimentations technologiques -->
+      <article class="card animate" data-delay="600" id="experiments">
+        <img src="../images/techno.jpg" alt="Expérimentations technologiques">
+        <h3>Expérimentations technologiques</h3>
+        <p>Explorations de réseaux radios libres (LoRa, Sigfox), de capteurs météo DIY et de solutions énergétiques autonomes.</p>
+        <p>Conception de dispositifs robustes et peu coûteux adaptés aux contextes de crise et aux territoires isolés.</p>
+      </article>
+    </section>
+
+    <!-- B. Publications & interventions -->
+    <section class="publications-section animate" data-delay="750" id="publications-interventions">
+      <h2 class="section-title">Publications & interventions</h2>
+
+      <ul class="publications-list">
+        <li>Conférence « Cartographier l’urgence » – Collectif HAND.</li>
+        <li>Entretiens pour Arte, France Culture, INRIA et d’autres médias.</li>
+        <li>Interventions sur l’open data pour les catastrophes et la gestion de crise.</li>
+      </ul>
+
+      <a class="button-link" href="https://journals.openedition.org/factsreports/4844"
+         target="_blank" rel="noopener">
+        📘 Lire l’article scientifique (Facts Reports)
+      </a>
+    </section>
+
+    <!-- Articles & ressources externes -->
+    <section class="articles-section animate" data-delay="900">
+      <h2 class="section-title">Articles & ressources</h2>
+
+      <div class="articles-grid">
+
+        <a class="article-card" target="_blank" rel="noopener"
+          href="https://www.sogoodstories.com/magazine/gael-musquet-est-le-robin-des-bois-du-net/">
+          <h3>So good – « Robin des Bois du net »</h3>
+          <p>Portrait de Gaël Musquet et de ses engagements numériques et citoyens.</p>
+        </a>
+
+        <a class="article-card" target="_blank" rel="noopener"
+          href="https://www.geekmaispasque.com/2020/10/innovacteur-gael-musquet-hackers-against-natural-disasters-hacker-ethique/">
+          <h3>Geek Mais Pas Que</h3>
+          <p>Portrait d’un hacker éthique et acteur majeur de la résilience face aux risques.</p>
+        </a>
+
+        <a class="article-card" target="_blank" rel="noopener"
+          href="https://www.urbanisme.fr/invite/gael-musquet-la-donnee-produite-par-la-puissance-publique-devait-revenir-au-public/">
+          <h3>Revue Urbanisme</h3>
+          <p>Réflexion sur le rôle des données publiques et leur retour aux citoyens.</p>
+        </a>
+
+        <a class="article-card" target="_blank" rel="noopener"
+          href="https://www.ouest-france.fr/normandie/eure-gael-musquet-est-un-corsaire-des-temps-modernes-4294362">
+          <h3>Ouest‑France</h3>
+          <p>Portrait de Gaël Musquet comme « corsaire des temps modernes ».</p>
+        </a>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer identique (chemin adapté) -->
+  <footer>
+    <p>&copy; 2025 – Site réalisé dans le cadre du projet BUT. Inspiration humanitaire et données ouvertes.</p>
+    <p><a href="../contact.html">Contact & Sources</a></p>
+  </footer>
+
+  <script src="../script.js"></script>
 </body>
 </html>
