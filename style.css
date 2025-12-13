@@ -1303,6 +1303,256 @@ body {
   }
 }
 
+/* ====================================== Page Agir sur le terrain ========================= */
+
+.engagement-hero {
+  text-align: center;
+  padding: 4.5rem 1.5rem 2.5rem;
+}
+
+.engagement-hero .hero-icon {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 0.9rem;
+  background: rgba(15, 118, 110, 0.1);
+  color: #0f766e;
+}
+
+.engagement-hero .page-title {
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 0.4rem;
+}
+
+.engagement-hero .page-subtitle {
+  max-width: 40rem;
+  margin: 0 auto;
+  color: #4b5563;
+  font-size: 0.98rem;
+}
+
+/* Bloc Engagement */
+
+.engagement-section {
+  display: flex;
+  justify-content: center;
+  padding: 0 1.5rem 3rem;
+}
+
+.engagement-card {
+  width: 100%;
+  max-width: 980px;
+  border-radius: 22px;
+  padding: 2.2rem 2.3rem 2rem;
+  background: rgba(15, 23, 42, 0.88);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.65);
+  color: #e5e7eb;
+}
+
+.engagement-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.6rem;
+}
+
+.engagement-icon {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 30% 0%, #f97316, #ea580c);
+  color: #fefce8;
+}
+
+.engagement-header h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.engagement-tagline {
+  margin: 0.2rem 0 0;
+  font-size: 0.9rem;
+  color: #9ca3af;
+}
+
+.engagement-intro {
+  margin: 0 0 1.7rem;
+  font-size: 1.02rem;
+  line-height: 1.6;
+}
+
+.engagement-pill-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.3rem;
+}
+
+.engagement-pill {
+  border-radius: 18px;
+  padding: 1.2rem 1.2rem 1rem;
+  background: radial-gradient(circle at 0% 0%, rgba(30, 64, 175, 0.35), rgba(15, 23, 42, 0.95));
+  border: 1px solid rgba(30, 64, 175, 0.6);
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  transform: translateY(0);
+  transition: transform 220ms ease-out, box-shadow 220ms ease-out, border-color 220ms ease-out;
+}
+
+.engagement-pill:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.8);
+  border-color: rgba(52, 211, 153, 0.8);
+}
+
+.engagement-pill p {
+  margin: 0;
+  font-size: 0.94rem;
+  color: #e5e7eb;
+}
+
+.pill-icon {
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(15, 23, 42, 0.9);
+  color: #facc15;
+}
+
+/* Section terrain */
+
+.terrain-section {
+  padding: 2.5rem 1.5rem 3.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.terrain-header h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.3rem;
+  color: #0f172a;
+}
+
+.terrain-header p {
+  margin: 0;
+  color: #4b5563;
+  font-size: 0.95rem;
+}
+
+.terrain-grid {
+  margin-top: 1.8rem;
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media (min-width: 720px) {
+  .terrain-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .terrain-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.terrain-item {
+  border-radius: 18px;
+  background: rgba(248, 250, 252, 0.96);
+  border: 1px solid #e5e7eb;
+  overflow: hidden;
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.12);
+  display: flex;
+  flex-direction: column;
+}
+
+.terrain-photo {
+  position: relative;
+  overflow: hidden;
+}
+
+.terrain-photo img {
+  display: block;
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transform: scale(1.02);
+  transition: transform 280ms ease-out;
+}
+
+.terrain-item:hover .terrain-photo img {
+  transform: scale(1.06);
+}
+
+.terrain-caption {
+  padding: 0.85rem 1rem 1rem;
+  font-size: 0.9rem;
+  color: #111827;
+}
+
+.terrain-more {
+  margin-top: 1.6rem;
+  text-align: center;
+}
+
+.link-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid #0f766e;
+  color: #0f766e;
+  font-size: 0.9rem;
+  text-decoration: none;
+  background: rgba(15, 118, 110, 0.06);
+}
+
+.link-ghost:hover {
+  background: rgba(15, 118, 110, 0.12);
+}
+
+/* Animations scroll */
+
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 450ms ease-out, transform 450ms ease-out;
+}
+
+.fade-in-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive bloc engagement */
+
+@media (max-width: 768px) {
+  .engagement-card {
+    padding: 1.7rem 1.4rem 1.5rem;
+  }
+
+  .engagement-pill-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ========================================== Footer ====================================== */
 footer {
   background-color: #e2e8f0;

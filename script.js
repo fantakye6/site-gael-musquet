@@ -302,3 +302,30 @@ document.addEventListener('DOMContentLoaded', () => {
   // ... ici tes autres initialisations (menu mobile, carousel, etc.)
   initProjectAnimations();
 });
+///* =================== Animations de la page Engament et Terrain   =================== 
+document.addEventListener('DOMContentLoaded', () => {
+  const animatedBlocks = document.querySelectorAll('.fade-in-up');
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const delay = el.dataset.delay ? parseInt(el.dataset.delay, 10) : 0;
+
+          setTimeout(() => {
+            el.classList.add('is-visible');
+          }, delay);
+
+          observer.unobserve(el);
+        }
+      });
+    },
+    {
+      root: null,
+      threshold: 0.15,
+    }
+  );
+
+  animatedBlocks.forEach((el) => observer.observe(el));
+});
