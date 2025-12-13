@@ -952,11 +952,6 @@ body {
   margin-bottom: 3rem;
 }
 
-.projects-grid {
-  display: grid;
-  gap: 1.5rem;
-}
-
 .projects-grid.secondary-grid {
   margin-top: 1.5rem;
 }
@@ -1091,15 +1086,6 @@ body {
   box-shadow: 0 12px 30px rgba(16, 185, 129, 0.45);
 }
 
-/* Force l'affichage vertical dans Publications & Interventions */
-#publications-interventions {
-  display: block;           /* annule un éventuel display: grid/flex */
-}
-
-#publications-interventions .project-pane {
-  margin-bottom: 1rem;      /* espace entre les cartes */
-}
-
 /* Articles & ressources */
 .articles-grid {
   display: grid;
@@ -1187,6 +1173,16 @@ body {
   }
 }
 
+/* Forcer Publications & Interventions en colonne */
+#publications-interventions {
+  display: block;
+}
+
+#publications-interventions > article {
+  display: block;       /* chaque carte prend toute la largeur */
+  width: 100%;
+  margin-bottom: 1rem;
+}
 /* ========================================== Footer ====================================== */
 footer {
   background-color: #e2e8f0;
