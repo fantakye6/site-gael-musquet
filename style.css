@@ -943,13 +943,15 @@ body {
   color: #059669;
 }
 .section-subtitle {
-  margin: 0 0 1.5rem;
-  color: #6b7280;
-  font-size: 0.95rem;
+  margin: 0.25rem 0 1.8rem;
+  color: #111827;          /* plus foncé */
+  font-size: 1rem;         /* un peu plus grand */
+  font-weight: 600;        /* gras léger */
   max-width: 640px;
 }
+
 .projects-section .section-subtitle {
-  /* rien à ajouter, la marge par défaut suffit */
+  /
 }
 
 /* Sections et grilles */
