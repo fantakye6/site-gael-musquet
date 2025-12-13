@@ -1078,6 +1078,10 @@ body {
   gap: 0.75rem;
 }
 
+#formateur-conferencier .pane-icon i {
+  color: #7c3aed;
+}
+
 .trainer-stat {
   background: #f9fafb;
   border-radius: 12px;
