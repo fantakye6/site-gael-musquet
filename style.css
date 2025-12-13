@@ -882,199 +882,271 @@ body {
 }
 /* =============================================== Page Projets =========================================== */
 
-.page-header {
-  background: #1e3d58;
-  color: #fff;
-  padding: 4rem 1.5rem;
+/* ===== PAGE PROJETS ===== */
+
+/* Coquille générale */
+.projects-shell {
+  max-width: 1200px;
+  margin: 6rem auto 3rem;
+  padding: 0 1.5rem 4rem;
+  color: #f9fafb;
+}
+
+/* Hero */
+.projects-hero {
   text-align: center;
+  margin-bottom: 3.5rem;
 }
 
-.page-header h1 {
-  margin: 0;
-  font-size: 2.4rem;
-}
-
-.page-header .subtitle {
-  margin-top: 0.5rem;
-  opacity: 0.85;
-}
-
-.projects-main {
-  max-width: 1100px;
+.projects-icon {
+  width: 56px;
+  height: 56px;
   margin: 0 auto;
-  padding: 2rem 1.5rem 4rem;
+  border-radius: 18px;
+  background: radial-gradient(circle at 0 0, #22c55e, #0f172a);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #bbf7d0;
+  font-size: 1.5rem;
+}
+
+.projects-hero h1 {
+  font-size: 3rem;
+  margin: 0.5rem 0;
+  color: #a7f3d0;
+}
+
+.projects-hero-subtitle {
+  max-width: 640px;
+  margin: 0 auto;
+  color: #9ca3af;
 }
 
 /* Titres de section */
 .section-title {
-  text-align: center;
-  font-size: 2rem;
-  margin: 3rem 0 1.5rem;
-  color: #1e3d58;
-}
-
-/* Cartes projets principaux */
-.cards-section {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 2rem;
-}
-
-.cards-section .section-title {
-  grid-column: 1 / -1;
-}
-
-.card {
-  background: #fff;
-  border-radius: 12px;
-  padding: 1.5rem;
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
-  text-align: left;
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.card.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.card img {
-  width: 100%;
-  height: 160px;
-  object-fit: cover;
-  border-radius: 10px;
-  margin-bottom: 1rem;
-}
-
-.card h3 {
-  margin: 0.5rem 0;
-  color: #1e3d58;
-}
-
-.card p {
-  margin: 0.4rem 0;
-}
-
-/* Liens dans les cartes */
-.project-links {
-  list-style: none;
-  padding-left: 0;
-  margin-top: 0.75rem;
-}
-
-.project-links li {
-  margin: 0.25rem 0;
-}
-
-.project-links a {
-  color: #1e3d58;
-  text-decoration: underline;
-  font-size: 0.95rem;
-}
-
-/* Publications & interventions */
-.publications-section {
-  text-align: center;
-  margin-top: 4rem;
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.publications-section.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.publications-list {
-  list-style: none;
-  padding-left: 0;
+  font-size: 1.8rem;
   margin: 0 0 1.5rem;
 }
 
-.publications-list li {
-  margin: 0.4rem 0;
-  font-size: 1.05rem;
+.section-title.accent {
+  color: #22c55e;
 }
 
-.button-link {
-  display: inline-block;
-  background: #1e3d58;
-  color: #fff;
-  padding: 0.8rem 1.6rem;
-  border-radius: 999px;
-  text-decoration: none;
-  font-size: 0.95rem;
-  transition: background 0.3s ease, transform 0.2s ease;
+/* Sections et grilles */
+.projects-section {
+  margin-bottom: 3.5rem;
 }
 
-.button-link:hover {
-  background: #17445e;
-  transform: translateY(-2px);
+.projects-grid {
+  display: grid;
+  gap: 1.5rem;
 }
 
-/* Articles & ressources externes */
-.articles-section {
-  margin-top: 4rem;
+.projects-grid.secondary-grid {
+  margin-top: 2rem;
+}
+
+/* Cartes "pane" (glassmorphism) */
+.project-pane {
+  background: radial-gradient(circle at top left,
+              rgba(59, 130, 246, 0.18),
+              rgba(15, 23, 42, 0.96));
+  border-radius: 20px;
+  padding: 1.6rem 1.8rem;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
   opacity: 0;
-  transform: translateY(40px);
+  transform: translateY(40px) rotate(0deg);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-.articles-section.visible {
+.project-pane.visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) rotate(0deg);
 }
 
+.project-pane.tilt-left {
+  transform: translateY(40px) rotate(-2deg);
+}
+
+.project-pane.tilt-right {
+  transform: translateY(40px) rotate(2deg);
+}
+
+.project-pane.visible.tilt-left,
+.project-pane.visible.tilt-right {
+  transform: translateY(0) rotate(0deg);
+}
+
+.project-pane.full-width {
+  grid-column: 1 / -1;
+}
+
+.project-pane:hover {
+  transform: translateY(-4px) scale(1.01);
+}
+
+/* En‑tête des panes */
+.pane-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.8rem;
+}
+
+.pane-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 14px;
+  background: radial-gradient(circle at 0 0, #22c55e, #0f172a);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #bbf7d0;
+}
+
+.pane-icon.danger {
+  background: radial-gradient(circle at 0 0, #f97316, #0f172a);
+  color: #fed7aa;
+}
+
+.pane-header h3 {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+.pane-tags {
+  margin-top: 0.3rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.pane-tags span {
+  font-size: 0.75rem;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(148, 163, 184, 0.4);
+}
+
+/* Texte des panes */
+.pane-text {
+  margin: 0.6rem 0 0.8rem;
+  color: #e5e7eb;
+  font-size: 0.95rem;
+}
+
+.pane-block {
+  margin-top: 0.6rem;
+  padding: 0.9rem 1rem;
+  border-radius: 14px;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(148, 163, 184, 0.4);
+}
+
+.pane-block h4 {
+  margin: 0 0 0.25rem;
+  font-size: 0.95rem;
+  color: #a7f3d0;
+}
+
+.pane-block p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #e5e7eb;
+}
+
+.pane-list {
+  margin: 0.4rem 0 0;
+  padding-left: 1.1rem;
+  color: #e5e7eb;
+  font-size: 0.93rem;
+}
+
+/* Boutons */
+.button-link {
+  display: inline-block;
+  margin-top: 0.9rem;
+  background: #22c55e;
+  color: #022c22;
+  padding: 0.7rem 1.5rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  box-shadow: 0 10px 30px rgba(34, 197, 94, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.button-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 40px rgba(34, 197, 94, 0.55);
+}
+
+/* Articles & ressources */
 .articles-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   margin-top: 1.5rem;
 }
 
 .article-card {
-  display: block;
-  background: #fff;
-  padding: 1.3rem 1.5rem;
-  border-radius: 12px;
+  background: radial-gradient(circle at top left,
+              rgba(79, 70, 229, 0.22),
+              rgba(15, 23, 42, 0.96));
+  border-radius: 18px;
+  padding: 1.3rem 1.4rem;
   text-decoration: none;
-  color: #333;
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
-  transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
+  color: #e5e7eb;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out, transform 0.2s ease;
 }
 
-.article-card h3 {
-  margin-top: 0;
-  margin-bottom: 0.4rem;
-  color: inherit;
-}
-
-.article-card p {
-  margin: 0;
-  font-size: 0.95rem;
+.article-card.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .article-card:hover {
   transform: translateY(-4px);
-  background: #1e3d58;
-  color: #fff;
+}
+
+.article-card h3 {
+  margin: 0 0 0.3rem;
+  font-size: 1rem;
+}
+
+.article-source {
+  margin: 0 0 0.3rem;
+  font-size: 0.85rem;
+  color: #a5b4fc;
+}
+
+.article-text {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #e5e7eb;
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  .page-header {
-    padding: 3rem 1rem;
+@media (max-width: 768px) {
+  .projects-shell {
+    margin-top: 5rem;
+    padding-inline: 1rem;
   }
 
-  .page-header h1 {
-    font-size: 2rem;
-  }
-
-  .section-title {
-    font-size: 1.6rem;
+  .projects-hero h1 {
+    font-size: 2.2rem;
   }
 }
 
