@@ -1134,14 +1134,14 @@ body {
 .button-link {
   display: inline-block;
   margin-top: 0.9rem;
-  background: #047857;
+  background: #30b690;
   color: #ecfdf5;
   padding: 0.65rem 1.4rem;
   border-radius: 999px;
   text-decoration: none;
   font-size: 0.95rem;
   font-weight: 600;
-  box-shadow: 0 8px 20px rgba(16, 185, 129, 0.35);
+  box-shadow: 0 8px 20px rgba(124, 214, 184, 0.35);
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
