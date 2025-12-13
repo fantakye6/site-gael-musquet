@@ -917,6 +917,14 @@ body {
   color: #ecfdf5;
   font-size: 1.5rem;
 }
+:root {
+  --accent-green: #22c55e; /* la couleur de ta planète */
+}
+
+/* Symbole à côté de Co-fondateur */
+.role-icon i {
+  color: var(--accent-green);
+}
 
 .projects-hero h1 {
   font-size: 2.6rem;
