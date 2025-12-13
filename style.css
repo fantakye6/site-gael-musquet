@@ -882,8 +882,6 @@ body {
 }
 /* =============================================== Page Projets =========================================== */
 
-/* ===== PAGE PROJETS – VERSION CLAIRE ===== */
-
 body {
   background-color: #f3f4f6;
 }
@@ -949,7 +947,6 @@ body {
   font-weight: 600;        /* gras léger */
   text-align: center;  /* centrage */
 }
-
 /* Sections et grilles */
 .projects-section {
   margin-bottom: 3rem;
@@ -1092,6 +1089,15 @@ body {
 .button-link:hover {
   transform: translateY(-1px);
   box-shadow: 0 12px 30px rgba(16, 185, 129, 0.45);
+}
+
+/* Force l'affichage vertical dans Publications & Interventions */
+#publications-interventions {
+  display: block;           /* annule un éventuel display: grid/flex */
+}
+
+#publications-interventions .project-pane {
+  margin-bottom: 1rem;      /* espace entre les cartes */
 }
 
 /* Articles & ressources */
