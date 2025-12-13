@@ -4,10 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Projets humanitaires & engagements</title>
-<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
 <script>
-  lucide.createIcons();
+  window.addEventListener('DOMContentLoaded', function () {
+    lucide.createIcons();
+  });
 </script>
+
 
   <!-- CSS global à la racine -->
   <link rel="stylesheet" href="../style.css">
@@ -118,7 +121,7 @@
 
       <!-- 2 cartes en dessous : Formateur & Expérimentations -->
       <div class="projects-grid secondary-grid">
-        <!-- Formateur & conférencier -->
+    
         <!-- Formateur & conférencier -->
 <article class="project-pane tilt-left animate" data-delay="250" id="formateur-conferencier">
   <div class="pane-header">
@@ -185,6 +188,7 @@
     Systèmes d’énergie autonome pour les infrastructures critiques.
   </li>
 </ul>
+
 </article>
      </div>
     </section>
