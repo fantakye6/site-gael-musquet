@@ -1164,6 +1164,25 @@ body {
   color: #4b5563;
 }
 
+.hand-features {
+  margin-top: 0.8rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.hand-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  background-color: #f3f4f6;
+  color: #111827;
+  font-size: 0.85rem;
+  border: 1px solid #e5e7eb;
+}
+
 /* Responsive */
 @media (max-width: 1024px) {
   .articles-grid {
