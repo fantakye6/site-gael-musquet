@@ -14,150 +14,120 @@
 
   <!-- Fond carte (même structure que les autres pages) -->
   <div class="map-bg">
-    <img src="../images/map-bg.webp" alt="Carte en arrière-plan">
+    <img src="images/image-de-fond.png" alt="Carte du monde">
   </div>
 
   <!-- NAV (reprends exactement ta nav, ici un exemple) -->
-  <header class="site-header">
     <nav class="navbar">
-      <a href="../accueil/index.html" class="nav-logo">Gaël Musquet</a>
-      <ul class="nav-links">
-        <li><a href="../accueil/index.html">Accueil</a></li>
-        <li><a href="../biographie/biographie.html">Biographie</a></li>
-        <li><a href="../projets/projets.html">Projets</a></li>
-        <li><a href="../engagement/engagement.html" class="active">Agir sur le terrain</a></li>
-        <li><a href="../contact/contact.html">Contact & sources</a></li>
+    <div class="nav-container">
+      <a href="../index.html" class="logo">Gaël Musquet</a>
+      <button class="nav-toggle" id="nav-toggle">☰</button>
+      <ul id="nav-menu">
+        <li><a href="../index.html"><i class="fas fa-home"></i> Accueil</a></li>
+        <li><a href="biographie.html" class="active"><i class="fas fa-user"></i> Biographie</a></li>
+        <li><a href="../projets/projets.html"><i class="fas fa-hands-helping"></i> Projets</a></li>
+        <li><a href="../engagement/engagement.html"><i class="fas fa-images"></i> Agir sur le terrain</a></li>
+        <li><a href="../apropos.html"><i class="fas fa-info-circle"></i> À propos</a></li>
+        <li><a href="../contact.html"><i class="fas fa-envelope"></i> Contact & Sources</a></li>
       </ul>
-    </nav>
-  </header>
+    </div>
+  </nav>
+  
 
-  <main class="page-wrapper">
+ <main class="page-wrapper">
 
-    <!-- HERO -->
-    <section class="page-hero engagement-hero">
-      <div class="hero-icon">
-        <i class="fas fa-compass"></i>
+  <section class="page-hero engagement-hero">
+    <div class="hero-icon">
+      <i class="fas fa-compass"></i>
+    </div>
+    <h1 class="page-title">Agir sur le terrain</h1>
+    <p class="page-subtitle">
+      Comment Gaël Musquet met le numérique libre au service des communautés exposées aux risques.
+    </p>
+  </section>
+
+  <section class="engagement-section fade-in-up">
+    <div class="engagement-card">
+      <div class="engagement-header">
+        <div class="engagement-icon">
+          <i class="fas fa-leaf"></i>
+        </div>
+        <div>
+          <h2>Engagement</h2>
+          <p class="engagement-tagline">
+            Lignes directrices de l’action de Gaël Musquet sur le terrain.
+          </p>
+        </div>
       </div>
-      <h1 class="page-title">Agir sur le terrain</h1>
-      <p class="page-subtitle">
-        Comment Gaël Musquet met le numérique libre au service des communautés exposées aux risques.
+
+      <p class="engagement-intro">
+        Dans ses interventions humanitaires, Gaël Musquet met la technologie au service de l’intérêt général
+        pour renforcer la résilience des territoires et des populations.
       </p>
-    </section>
 
-    <!-- BLOC ENGAGEMENT -->
-    <section class="engagement-section fade-in-up">
-      <div class="engagement-card">
-        <div class="engagement-header">
-          <div class="engagement-icon">
-            <i class="fas fa-leaf"></i>
+      <div class="engagement-pill-grid">
+        <article class="engagement-pill">
+          <div class="pill-icon">
+            <i class="fas fa-shield-alt"></i>
           </div>
-          <div>
-            <h2>Engagement</h2>
-            <p class="engagement-tagline">
-              Lignes directrices de l’action de Gaël Musquet sur le terrain.
-            </p>
+          <p>Numérique libre, ouvert et accessible à toutes et tous.</p>
+        </article>
+
+        <article class="engagement-pill">
+          <div class="pill-icon">
+            <i class="fas fa-people-group"></i>
           </div>
+          <p>Autonomie des communautés face aux risques et aux crises.</p>
+        </article>
+
+        <article class="engagement-pill">
+          <div class="pill-icon">
+            <i class="fas fa-heart"></i>
+          </div>
+          <p>Technologie pensée comme un outil d’émancipation humaine.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="terrain-section">
+    <div class="terrain-header fade-in-up" data-delay="0">
+      <h2>Présence sur le terrain</h2>
+      <p>Quelques moments qui illustrent son engagement aux côtés des habitantes et des habitants.</p>
+    </div>
+
+    <div class="terrain-grid">
+      <article class="terrain-item fade-in-up" data-delay="80">
+        <div class="terrain-photo">
+          <img src="../images/terrain-1.jpg" alt="Atelier de cartographie participative">
         </div>
+        <p class="terrain-caption">Atelier de cartographie participative.</p>
+      </article>
 
-        <p class="engagement-intro">
-          Dans ses interventions humanitaires, Gaël Musquet met la technologie au service de l’intérêt général
-          pour renforcer la résilience des territoires et des populations.
-        </p>
-
-        <div class="engagement-pill-grid">
-          <article class="engagement-pill">
-            <div class="pill-icon">
-              <i class="fas fa-shield-alt"></i>
-            </div>
-            <p>Numérique libre, ouvert et accessible à toutes et tous.</p>
-          </article>
-
-          <article class="engagement-pill">
-            <div class="pill-icon">
-              <i class="fas fa-people-group"></i>
-            </div>
-            <p>Autonomie des communautés face aux risques et aux crises.</p>
-          </article>
-
-          <article class="engagement-pill">
-            <div class="pill-icon">
-              <i class="fas fa-heart"></i>
-            </div>
-            <p>Technologie pensée comme un outil d’émancipation humaine.</p>
-          </article>
+      <article class="terrain-item fade-in-up" data-delay="120">
+        <div class="terrain-photo">
+          <img src="../images/terrain-2.jpg" alt="Test de réseau radio">
         </div>
-      </div>
-    </section>
+        <p class="terrain-caption">Test de réseau radio en situation réelle.</p>
+      </article>
 
-    <!-- PRESENCE SUR LE TERRAIN -->
-    <section class="terrain-section">
-      <div class="terrain-header fade-in-up" data-delay="0">
-        <h2>Présence sur le terrain</h2>
-        <p>Quelques moments qui illustrent son engagement aux côtés des habitantes et des habitants.</p>
-      </div>
+      <article class="terrain-item fade-in-up" data-delay="160">
+        <div class="terrain-photo">
+          <img src="../images/terrain-3.jpg" alt="Travail collectif avec des bénévoles">
+        </div>
+        <p class="terrain-caption">Travail collectif avec des bénévoles autour des risques naturels.</p>
+      </article>
 
-      <div class="terrain-grid">
-        <!-- Photo 1 -->
-        <article class="terrain-item fade-in-up" data-delay="80">
-          <div class="terrain-photo">
-            <img src="../images/terrain-1.jpg" alt="Atelier de cartographie participative">
-          </div>
-          <p class="terrain-caption">Atelier de cartographie participative.</p>
-        </article>
+      <article class="terrain-item fade-in-up" data-delay="200">
+        <div class="terrain-photo">
+          <img src="../images/terrain-4.jpg" alt="Formation aux risques">
+        </div>
+        <p class="terrain-caption">Intervention lors d’une formation aux risques.</p>
+      </article>
+    </div>
+  </section>
 
-        <!-- Photo 2 -->
-        <article class="terrain-item fade-in-up" data-delay="120">
-          <div class="terrain-photo">
-            <img src="../images/terrain-2.jpg" alt="Test de réseau radio">
-          </div>
-          <p class="terrain-caption">Test de réseau radio en situation réelle.</p>
-        </article>
-
-        <!-- Photo 3 -->
-        <article class="terrain-item fade-in-up" data-delay="160">
-          <div class="terrain-photo">
-            <img src="../images/terrain-3.jpg" alt="Travail collectif avec des bénévoles">
-          </div>
-          <p class="terrain-caption">Travail collectif avec des bénévoles autour des risques naturels.</p>
-        </article>
-
-        <!-- Photo 4 -->
-        <article class="terrain-item fade-in-up" data-delay="200">
-          <div class="terrain-photo">
-            <img src="../images/terrain-4.jpg" alt="Formation aux risques">
-          </div>
-          <p class="terrain-caption">Intervention lors d’une formation aux risques.</p>
-        </article>
-
-        <!-- Décommente si tu as plus de photos -->
-        <!--
-        <article class="terrain-item fade-in-up" data-delay="240">
-          <div class="terrain-photo">
-            <img src="../images/terrain-5.jpg" alt="Exercice de crise">
-          </div>
-          <p class="terrain-caption">Exercice de crise avec les acteurs locaux.</p>
-        </article>
-
-        <article class="terrain-item fade-in-up" data-delay="280">
-          <div class="terrain-photo">
-            <img src="../images/terrain-6.jpg" alt="Atelier de sensibilisation">
-          </div>
-          <p class="terrain-caption">Atelier de sensibilisation au changement climatique.</p>
-        </article>
-        -->
-      </div>
-
-      <!-- Pour plus tard : lien vers vraie galerie -->
-      <!--
-      <div class="terrain-more">
-        <a href="../galerie/galerie.html" class="link-ghost">
-          Voir plus de photos
-        </a>
-      </div>
-      -->
-    </section>
-
-  </main>
+</main>
 
   <!-- FOOTER (reprends le tien, ici un exemple) -->
   <footer>
