@@ -1198,6 +1198,7 @@ body {
 #sos-med .pane-block h4 {
   color: #6d1414;   /* exemple : rouge SOS, remplace par ce que tu veux */
 }
+/* style de base identique pour les deux blocs */
 #sos-med .pane-block {
   border-radius: 12px;
   border: 1px solid #e5e7eb;
@@ -1213,13 +1214,13 @@ body {
 }
 
 /* 1er bloc : Sensibilisation & plaidoyer */
-#sos-med .pane-block:nth-of-type(1):hover {
+#sos-med .pane-block:nth-child(1):hover {
   border-color: #f97316;
   box-shadow: 0 0 0 2px rgba(249,115,22,0.25);
 }
 
 /* 2e bloc : Données & récits */
-#sos-med .pane-block:nth-of-type(2):hover {
+#sos-med .pane-block:nth-child(2):hover {
   border-color: #2563eb;
   box-shadow: 0 0 0 2px rgba(37,99,235,0.25);
 }
