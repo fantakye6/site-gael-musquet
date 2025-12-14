@@ -2016,6 +2016,19 @@ padding: .5rem 1.5rem 2.5rem;  /* même valeur que .page-hero sur les autres pag
 }
 /* ================================== PAGE CONTACT & SOURCES ================================ */
 
+/* PAGE CONTACT & SOURCES / ENGAGEMENT */
+.page-contact-sources .projects-shell {
+  max-width: 980px;
+  margin: 3rem auto 4rem;   /* centre le bloc + marge haut/bas */
+  padding: 0 1.5rem;
+  box-sizing: border-box;
+}
+
+.page-contact-sources .contact-sources-card {
+  max-width: 900px;
+  margin: 0 auto 2.8rem;    /* centre chaque encadré + espace entre eux */
+}
+
 .page-contact-sources .page-hero {
   padding: 4.5rem 1.5rem 2.5rem;  /* même que bio/projets */
   text-align: center;
