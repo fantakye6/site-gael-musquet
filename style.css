@@ -1208,22 +1208,34 @@ body {
   cursor: pointer;
 }
 
-/* Effet commun */
+/* Base commune */
+#sos-med .pane-block {
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  padding: 0.9rem 1rem;
+  background: #f9fafb;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+  cursor: pointer;
+}
+
 #sos-med .pane-block:hover {
   transform: translateY(-2px);
 }
 
-/* 1er bloc : Sensibilisation & plaidoyer */
-#sos-med .pane-block:nth-child(1):hover {
+/* Sensibilisation & plaidoyer : orange */
+#sos-med .pane-block-plaido:hover {
   border-color: #f97316;
   box-shadow: 0 0 0 2px rgba(249,115,22,0.25);
+  background-color: #fff7ed;
 }
 
-/* 2e bloc : Données & récits */
-#sos-med .pane-block:nth-child(2):hover {
+/* Données & récits : bleu */
+#sos-med .pane-block-data:hover {
   border-color: #2563eb;
   box-shadow: 0 0 0 2px rgba(37,99,235,0.25);
+  background-color: #eff6ff;
 }
+
 
 /* Fond gris pour l'icône de la carte HAND */
 #hand .pane-icon {
