@@ -50,6 +50,17 @@ body {
   text-align: center;
 }
 
+.page-title {
+  font-family: 'Lato', sans-serif;   /* même police */
+  font-size: 2.2rem;                 /* un peu plus grand pour le titre de page */
+  font-weight: 800;
+  color: #072f34;
+  letter-spacing: .4px;
+  margin: 0 auto 2rem;
+  text-shadow: 0 6px 18px rgba(3, 29, 33, .12);
+  text-align: center;
+}
+
 .section-title::after {
   content: '';
   display: block;
