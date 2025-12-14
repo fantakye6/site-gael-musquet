@@ -328,5 +328,65 @@ document.addEventListener('DOMContentLoaded', () => {
   );
 
   animatedBlocks.forEach((el) => observer.observe(el));
+  
+  document.addEventListener('DOMContentLoaded', () => {
+  const items = Array.from(document.querySelectorAll('.terrain-item'));
+  const lightbox = document.getElementById('terrain-lightbox');
+  if (!lightbox || !items.length) return;
+
+  const imgEl = lightbox.querySelector('.lightbox-image');
+  const titleEl = lightbox.querySelector('.lightbox-title');
+  const captionEl = lightbox.querySelector('.lightbox-caption');
+  const btnClose = lightbox.querySelector('.lightbox-close');
+  const btnPrev = lightbox.querySelector('.lightbox-prev');
+  const btnNext = lightbox.querySelector('.lightbox-next');
+
+  let currentIndex = 0;
+
+  function openLightbox(index) {
+    currentIndex = index;
+    const item = items[currentIndex];
+    const img = item.querySelector('img');
+    const caption = item.querySelector('.terrain-caption');
+
+    imgEl.src = img.src;
+    imgEl.alt = img.alt;
+    titleEl.textContent = img.alt;
+    captionEl.textContent = caption ? caption.textContent : '';
+
+    lightbox.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+
+  function showNext(delta) {
+    currentIndex = (currentIndex + delta + items.length) % items.length;
+    openLightbox(currentIndex);
+  }
+
+  items.forEach((item, index) => {
+    const img = item.querySelector('img');
+    if (!img) return;
+    img.style.cursor = 'pointer';
+    img.addEventListener('click', () => openLightbox(index));
+  });
+
+  btnClose.addEventListener('click', closeLightbox);
+  lightbox.querySelector('.lightbox-backdrop').addEventListener('click', closeLightbox);
+  btnPrev.addEventListener('click', () => showNext(-1));
+  btnNext.addEventListener('click', () => showNext(1));
+
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('is-open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowRight') showNext(1);
+    if (e.key === 'ArrowLeft') showNext(-1);
+  });
+});
+
 });
 

@@ -1695,7 +1695,90 @@ transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
   margin-top: 0;          /* plus besoin de marge au-dessus, on l’a sur terrain-intro */
   display: grid;
   gap: 1.5rem;
+  justify-content: center;   /* centre les colonnes dans la grille */
 }
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.lightbox.is-open {
+  display: flex;
+}
+
+.lightbox-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.7);
+}
+
+.lightbox-dialog {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  width: 90%;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 1.5rem 2.25rem 1.75rem;
+  box-shadow: 0 25px 60px rgba(15, 23, 42, 0.5);
+  text-align: center;
+}
+
+.lightbox-image {
+  max-width: 100%;
+  max-height: 60vh;
+  border-radius: 12px;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+.lightbox-title {
+  margin: 0 0 0.3rem;
+  font-size: 1.05rem;
+  color: #0f172a;
+}
+
+.lightbox-caption {
+  margin: 0 0 0.75rem;
+  font-size: 0.9rem;
+  color: #4b5563;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.9rem;
+  border: none;
+  background: transparent;
+  font-size: 1.6rem;
+  cursor: pointer;
+  color: #111827;
+}
+
+.lightbox-prev,
+.lightbox-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: rgba(15, 23, 42, 0.85);
+  color: #f9fafb;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.lightbox-prev { left: 0.5rem; }
+.lightbox-next { right: 0.5rem; }
 
 @media (min-width: 720px) {
   .terrain-grid {
