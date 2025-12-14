@@ -329,15 +329,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
   animatedBlocks.forEach((el) => observer.observe(el));
 });
-// =================== Engagement : sélection des encadrés ===================
-document.addEventListener('DOMContentLoaded', () => {
-  const pills = document.querySelectorAll('.engagement-pill');
-  if (!pills.length) return;
 
-  pills.forEach((pill) => {
-    pill.addEventListener('click', () => {
-      pills.forEach(p => p.classList.remove('active'));
-      pill.classList.add('active');
-    });
-  });
-});
