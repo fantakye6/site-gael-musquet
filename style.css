@@ -1539,7 +1539,6 @@ body {
 
 /* Variante Agir : même taille, centré, sans barre */
 .engagement-hero .page-subtitle {
-  font-size: 16px;   /* même valeur que ci-dessus */
   text-align: center;
   padding-left: 0;
   position: static;
@@ -1806,6 +1805,17 @@ transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
   .engagement-pill-grid {
     grid-template-columns: 1fr;
   }
+}
+/* Police unique pour tout le texte du site */
+html, body, p, h1, h2, h3, h4, h5, h6 {
+  font-family: 'Open Sans', sans-serif !important;
+}
+
+/* Sous-titres identiques partout */
+.page-subtitle {
+  font-size: 16px !important;
+  line-height: 1.8;
+  color: #0b2a33;
 }
 
 /* ========================================== Footer ====================================== */
