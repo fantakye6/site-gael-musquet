@@ -50,15 +50,25 @@ body {
   text-align: center;
 }
 
-.page-title {
-  font-family: 'Lato', sans-serif;   /* même police */
-  font-size: 2.2rem;                 /* un peu plus grand pour le titre de page */
-  font-weight: 800;
-  color: #072f34;
-  letter-spacing: .4px;
+.page-subtitle {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #0b2a33;
+  position: relative;
+  padding-left: 14px;
+  max-width: 900px;
   margin: 0 auto 2rem;
-  text-shadow: 0 6px 18px rgba(3, 29, 33, .12);
-  text-align: center;
+}
+
+.page-subtitle::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.25rem;
+  bottom: 0.25rem;
+  width: 3px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #0e9f92, #0b6b6a);
 }
 
 .section-title::after {
@@ -609,13 +619,6 @@ body {
   margin: 0 auto 0.9rem;
   background: rgba(15, 118, 110, 0.1);  /* même couleur que les autres */
   color: #0f766e;
-}
-.page-biographie .bio-intro {
-  font-size: 1rem;
-  line-height: 1.8;
-  color: #0b2a33;
-  position: relative;
-  padding-left: 14px;
 }
 
 .page-biographie .bio-intro::before {
