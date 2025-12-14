@@ -2031,6 +2031,27 @@ padding: .5rem 1.5rem 2.5rem;  /* même valeur que .page-hero sur les autres pag
   padding-left: 0;
   position: static;
 }
+/* Page Contact & Sources : réutilise les cartes Agir */
+.page-contact-sources .projects-shell {
+  max-width: 980px;
+  margin: 3rem auto 4rem;
+  padding: 0 1.5rem;
+}
+
+.page-contact-sources .engagement-card + .engagement-card {
+  margin-top: 1.8rem;
+}
+
+/* Listes de sources alignées proprement */
+.page-contact-sources .sources-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0 0 0.75rem;
+}
+
+.page-contact-sources .sources-list li {
+  margin-bottom: 0.35rem;
+}
 
 /* Conteneur principal (même logique que projects-shell) */
 .contact-shell {
