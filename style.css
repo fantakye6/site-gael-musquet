@@ -70,6 +70,16 @@ body {
   border-radius: 999px;
   background: linear-gradient(180deg, #0e9f92, #0b6b6a);
 }
+/* Titres de section spécifiques à Projets */
+.projects-section-title {
+  font-family: 'Lato', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 1.2rem;
+  text-shadow: none;
+  text-align: center;  /* si tu veux qu'ils restent centrés */
+}
 
 .section-title::after {
   content: '';
@@ -964,15 +974,8 @@ body {
   color: #4b5563;
 }
 
-/* Titres de section spécifiques à Projets */
-.projects-section-title {
-  font-family: 'Lato', sans-serif;
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: #0f172a;
-  margin: 0 0 1.2rem;
-  text-shadow: none;
-  text-align: center;  /* si tu veux qu'ils restent centrés */
+.projects-section .section-title {
+  margin-bottom: 1.5rem;  /* exemple : juste la marge */
 }
 
 .section-title.accent {
