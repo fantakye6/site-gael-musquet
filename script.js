@@ -394,4 +394,26 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 });
- 
+// =================== Animation Page A Propos  ===================
+ document.addEventListener('DOMContentLoaded', () => {
+  const animatedBlocks = document.querySelectorAll('.fade-in-up');
+  if (!animatedBlocks.length) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target); // animation une seule fois
+        }
+      });
+    },
+    {
+      root: null,
+      threshold: 0.15,
+    }
+  );
+
+  animatedBlocks.forEach((el) => observer.observe(el));
+});
+
