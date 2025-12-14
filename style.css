@@ -54,10 +54,11 @@ body {
   font-size: 1rem;
   line-height: 1.8;
   color: #0b2a33;
-  position: relative;
-  padding-left: 14px;
   max-width: 900px;
   margin: 0 auto 2rem;
+  text-align: left;
+  position: relative;
+  padding-left: 14px;
 }
 
 .page-subtitle::before {
@@ -70,6 +71,7 @@ body {
   border-radius: 999px;
   background: linear-gradient(180deg, #0e9f92, #0b6b6a);
 }
+
 /* Titres de section spécifiques à Projets */
 .projects-section-title {
   font-family: 'Lato', sans-serif;
@@ -195,10 +197,11 @@ body {
   }
 }
 /* =================== Bloc hero commun à toutes les pages =================== */
-page-hero {
-  padding: 4.5rem 1.5rem 2.5rem;  /* distance nav → icône → titre */
+.page-hero {
+  padding: 4.5rem 1.5rem 2.5rem;
   text-align: center;
 }
+
 
 
 /* ======================================= Accueil (intro) ================================================ */
@@ -977,14 +980,16 @@ body {
   margin: 0.75rem 0 0.6rem;
 }
 
-.projects-hero-subtitle {
-  max-width: 640px;
-  margin: 0 auto 1.8rem;
-  color: #4b5563;
+.projects-hero .page-subtitle {
+  padding-left: 0;
+  position: static;
+  text-align: center;
 }
+
 .projects-hero .page-subtitle::before {
   content: none;
 }
+
 
 .projects-hero-subtitle {
   max-width: 640px;
@@ -1370,15 +1375,15 @@ body {
 }
 
 /* Désactive la petite barre pour le sous-titre de la page Engagement */
-.engagement-hero .page-subtitle {
+engagement-hero .page-subtitle {
   padding-left: 0;
   position: static;
+  text-align: center;
 }
 
 .engagement-hero .page-subtitle::before {
   content: none;
 }
-
 
 /* Bloc Engagement plus clair, cohérent avec le reste */
 .engagement-section {
@@ -1482,6 +1487,55 @@ body {
   .terrain-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
+}
+.terrain-section {
+  padding: 2.5rem 1.5rem 3.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;     /* centre le titre et le paragraphe */
+}
+
+.terrain-intro {
+  max-width: 40rem;
+  margin: 0 auto 1.8rem;
+  color: #4b5563;
+  font-size: 0.95rem;
+}
+
+/* Grille d’images */
+.terrain-grid {
+  margin-top: 0;          /* plus besoin de marge au-dessus, on l’a sur terrain-intro */
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media (min-width: 720px) {
+  .terrain-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .terrain-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* Chaque carte reste centrée visuellement */
+.terrain-item {
+  border-radius: 18px;
+  background: rgba(248, 250, 252, 0.96);
+  border: 1px solid #e5e7eb;
+  overflow: hidden;
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.12);
+  display: flex;
+  flex-direction: column;
+}
+
+.terrain-caption {
+  padding: 0.85rem 1rem 1rem;
+  font-size: 0.9rem;
+  color: #111827;
 }
 
 .terrain-item {
