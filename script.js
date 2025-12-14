@@ -304,7 +304,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 ///* =================== Animations de la page Engament et Terrain   =================== 
 document.addEventListener('DOMContentLoaded', () => {
-  const animatedBlocks = document.querySelectorAll('.fade-in-up');
+  const animatedBlocks = document.querySelectorAll;
 
   const observer = new IntersectionObserver(
     (entries) => {
@@ -394,16 +394,15 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 });
-// =================== Animation Page A Propos  ===================
- document.addEventListener('DOMContentLoaded', () => {
+// =================== Animations fade-in-up (toutes pages) ===================
+document.addEventListener('DOMContentLoaded', () => {
   const animatedBlocks = document.querySelectorAll('.fade-in-up');
   if (!animatedBlocks.length) return;
 
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        // l'élément doit être au moins à 40 % dans le viewport
-        if (entry.intersectionRatio >= 0.4) {
+        if (entry.isIntersecting) {
           entry.target.classList.add('is-visible');
           observer.unobserve(entry.target);
         }
@@ -411,7 +410,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       root: null,
-      threshold: 0.4
+      threshold: 0.25
     }
   );
 
