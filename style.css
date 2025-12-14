@@ -1981,6 +1981,25 @@ padding: .5rem 1.5rem 2.5rem;  /* même valeur que .page-hero sur les autres pag
   font-size: 0.9rem;
   color: #0e9f92;
 }
+/* Titre Contexte académique avec icône */
+.contexte-title {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.contexte-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  background: rgba(14, 116, 144, 0.08);
+  border: 1px solid rgba(14, 116, 144, 0.35);
+  color: #0e7490;
+  font-size: 1rem;
+}
 
 /* ========================================== Footer ====================================== */
 footer {
