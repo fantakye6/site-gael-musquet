@@ -328,8 +328,9 @@ document.addEventListener('DOMContentLoaded', () => {
   );
 
   animatedBlocks.forEach((el) => observer.observe(el));
-  
-  document.addEventListener('DOMContentLoaded', () => {
+
+ // =================== Lightbox terrain ===================
+document.addEventListener('DOMContentLoaded', () => {
   const items = Array.from(document.querySelectorAll('.terrain-item'));
   const lightbox = document.getElementById('terrain-lightbox');
   if (!lightbox || !items.length) return;
@@ -387,6 +388,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'ArrowLeft') showNext(-1);
   });
 });
-
+ 
 });
-
+ 
