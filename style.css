@@ -585,6 +585,7 @@ body {
 }
 
 /* ================================================= PAGE BIOGRAPHIE =============================================================================== */
+
 .page-biographie .page-content {
   max-width: 1000px;
   margin: 3rem auto 5rem;
@@ -598,7 +599,17 @@ body {
   margin: 0 auto 2rem;
   text-align: left;
 }
-
+.bio-hero .hero-icon {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 0.9rem;
+  background: rgba(15, 118, 110, 0.1);  /* même couleur que les autres */
+  color: #0f766e;
+}
 .page-biographie .bio-intro {
   font-size: 1rem;
   line-height: 1.8;
