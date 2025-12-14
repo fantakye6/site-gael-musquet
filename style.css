@@ -977,6 +977,13 @@ body {
 .projects-section .section-title {
   margin-bottom: 1.5rem;  /* exemple : juste la marge */
 }
+.projects-section {
+  text-align: center;
+}
+
+.projects-section .section-title {
+  display: inline-block;
+}
 
 .section-title.accent {
   color: #0f172a;
