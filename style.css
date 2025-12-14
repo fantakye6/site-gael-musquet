@@ -1956,6 +1956,31 @@ padding: .5rem 1.5rem 2.5rem;  /* même valeur que .page-hero sur les autres pag
   line-height: 1.7;
   color: #0b2a33;
 }
+.apropos-tags {
+  margin-top: 1.6rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.apropos-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(15, 118, 110, 0.06);
+  border: 1px solid rgba(15, 118, 110, 0.35);
+  color: #0b2a33;
+  font-size: 0.85rem;
+  font-weight: 600;
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.12);
+}
+
+.apropos-tag i {
+  font-size: 0.9rem;
+  color: #0e9f92;
+}
 
 /* ========================================== Footer ====================================== */
 footer {
