@@ -626,9 +626,9 @@ page-hero {
   text-align: left;
 }
 
-.bio-hero .hero-icon {
+.bio-hero {
+  padding: 4.5rem 1.5rem 2.5rem;  /* même valeur que .page-hero sur les autres pages */
   text-align: center;
-  padding: 4.5rem 1.5rem 2.5rem;
 }
 
 /* Forcer la taille de l'icône uniquement sur la page Biographie */
@@ -1354,6 +1354,10 @@ body {
 .engagement-hero {
   text-align: center;
   padding: 4.5rem 1.5rem 2.5rem;
+}
+.engagement-hero{
+  padding: 4.5rem 1.5rem 2.5rem;  /* même valeur que .page-hero sur les autres pages */
+  text-align: center;
 }
 
 .engagement-hero .hero-icon {
