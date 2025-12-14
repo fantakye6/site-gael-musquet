@@ -1690,14 +1690,6 @@ transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
   font-size: 0.95rem;
 }
 
-/* Grille d’images */
-.terrain-grid {
-  margin-top: 0;          /* plus besoin de marge au-dessus, on l’a sur terrain-intro */
-  display: grid;
-  gap: 1.5rem;
-  justify-content: center;   /* centre les colonnes dans la grille */
-}
-
 .lightbox {
   position: fixed;
   inset: 0;
@@ -1779,6 +1771,14 @@ transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 
 .lightbox-prev { left: 0.5rem; }
 .lightbox-next { right: 0.5rem; }
+
+/* Grille d’images */
+.terrain-grid {
+  margin-top: 0;          /* plus besoin de marge au-dessus, on l’a sur terrain-intro */
+  display: grid;
+  gap: 1.5rem;
+  justify-content: center;   /* centre les colonnes dans la grille */
+}
 
 @media (min-width: 720px) {
   .terrain-grid {

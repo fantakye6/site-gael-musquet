@@ -341,12 +341,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const btnClose = lightbox.querySelector('.lightbox-close');
   const btnPrev = lightbox.querySelector('.lightbox-prev');
   const btnNext = lightbox.querySelector('.lightbox-next');
+  const backdrop = lightbox.querySelector('.lightbox-backdrop');
 
   let currentIndex = 0;
 
-  function openLightbox(index) {
-    currentIndex = index;
-    const item = items[currentIndex];
+  function render(index) {
+    const item = items[index];
     const img = item.querySelector('img');
     const caption = item.querySelector('.terrain-caption');
 
@@ -354,7 +354,11 @@ document.addEventListener('DOMContentLoaded', () => {
     imgEl.alt = img.alt;
     titleEl.textContent = img.alt;
     captionEl.textContent = caption ? caption.textContent : '';
+  }
 
+  function openLightbox(index) {
+    currentIndex = index;
+    render(currentIndex);
     lightbox.classList.add('is-open');
     document.body.style.overflow = 'hidden';
   }
@@ -366,7 +370,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function showNext(delta) {
     currentIndex = (currentIndex + delta + items.length) % items.length;
-    openLightbox(currentIndex);
+    render(currentIndex);
   }
 
   items.forEach((item, index) => {
@@ -377,7 +381,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   btnClose.addEventListener('click', closeLightbox);
-  lightbox.querySelector('.lightbox-backdrop').addEventListener('click', closeLightbox);
+  backdrop.addEventListener('click', closeLightbox);
   btnPrev.addEventListener('click', () => showNext(-1));
   btnNext.addEventListener('click', () => showNext(1));
 
@@ -388,6 +392,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'ArrowLeft') showNext(-1);
   });
 });
- 
+
 });
  
