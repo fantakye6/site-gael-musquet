@@ -51,7 +51,7 @@ body {
 }
 
 .page-subtitle {
-  font-size: 1rem;
+  font-size: 16px;
   line-height: 1.8;
   color: #0b2a33;
   max-width: 900px;
@@ -1539,11 +1539,8 @@ body {
 
 /* Variante Agir : même taille, centré, sans barre */
 .engagement-hero .page-subtitle {
-  font-size: 1rem;
-  line-height: 1.8;
-  color: #0b2a33;
-  max-width: 900px;
-  margin: 0 auto 2rem;text-align: center;
+  font-size: 16px;   /* même valeur que ci-dessus */
+  text-align: center;
   padding-left: 0;
   position: static;
 }
@@ -1551,11 +1548,6 @@ body {
 .engagement-hero .page-subtitle::before {
   content: none;
 }
-
-.engagement-hero .page-subtitle::before {
-  content: none;
-}
-
 
 /* Bloc Engagement plus clair, cohérent avec le reste */
 .engagement-section {
