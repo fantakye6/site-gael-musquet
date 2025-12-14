@@ -1905,6 +1905,15 @@ html, body, p, h1, h2, h3, h4, h5, h6 {
   z-index: 10;
   background-color: transparent;
 }
+.page-apropos .apropos-header {
+  max-width: 900px;
+  margin: 0 auto 2rem;
+  text-align: left;
+} 
+.apropos-hero {
+padding: .5rem 1.5rem 2.5rem;  /* même valeur que .page-hero sur les autres pages */
+ text-align: center;
+}
 
 .apropos-hero .hero-icon {
   width: 3rem;
