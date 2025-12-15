@@ -1682,7 +1682,7 @@ body {
 
 .terrain-passport {
   /* fond léger compatible avec la map-bg */
-  background: rgba(250, 249, 245, 0.86); /* proche navbar */
+  background: rgba(255, 255, 255, 0.95); /* proche navbar */
 }
 
 /* Petit label au-dessus du titre */
