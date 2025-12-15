@@ -1884,11 +1884,6 @@ body {
   z-index: 1;
 }
 
-.terrain-card-link::after {
-  content: "↗";
-  font-size: 0.8rem;
-}
-
 .terrain-card-link:hover {
   background: rgba(14, 159, 146, 0.06);
   text-decoration: underline;
